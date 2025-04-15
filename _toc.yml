@@ -1,0 +1,11 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+  - file: sprint1
+  - file: sprint2a
+  - file: sprint2b
+  - file: sprint3
+  - file: sprint4

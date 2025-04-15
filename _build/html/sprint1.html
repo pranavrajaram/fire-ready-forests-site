@@ -1,0 +1,2776 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Sprint 1 &#8212; Fire-Ready Forests Data Challenge</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sprint1';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Sprint 2, Module A" href="sprint2a.html" />
+    <link rel="prev" title="Fire-Ready Forests Data Challenge" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/trees.png" class="logo__image only-light" alt="Fire-Ready Forests Data Challenge - Home"/>
+    <script>document.write(`<img src="_static/trees.png" class="logo__image only-dark" alt="Fire-Ready Forests Data Challenge - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Fire-Ready Forests Data Challenge
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Sprint 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprint2a.html">Sprint 2, Module A</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprint2b.html">Sprint 2, Module B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprint3.html">Sprint 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprint4.html">Sprint 4</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fsprint1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/sprint1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Sprint 1</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-exploring-fia-and-field-data-at-independence-lake">Part 1: Exploring FIA and field data at Independence Lake</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-examination-of-trees-at-shaver-lake">Part 2: Examination of trees at Shaver Lake</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-better-modeling-of-dbh-from-height-at-independence-lake">Part 3: Better Modeling of DBH from Height at Independence Lake</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-model-evaluation">Part 4: Model Evaluation</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sprint-1">
+<h1>Sprint 1<a class="headerlink" href="#sprint-1" title="Link to this heading">#</a></h1>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this notebook, I used two major datasets, the Forest Inventory and Analysis (FIA) database and a field-collected dataset, to predict the Diameter at breast height (DBH) and species composition of different ecosystems based on tree heights. Specifically, I examined the relationships between tree heights and diameter at Independence Lake and Shaver Lake.</p>
+<section id="part-1-exploring-fia-and-field-data-at-independence-lake">
+<h3>Part 1: Exploring FIA and field data at Independence Lake<a class="headerlink" href="#part-1-exploring-fia-and-field-data-at-independence-lake" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Task 1 - Your code here</span>
+<span class="kn">import</span> <span class="nn">folium</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">DATA_PATH</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_plots</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA_PATH</span> <span class="o">/</span> <span class="s2">&quot;01_plot_identification.csv&quot;</span><span class="p">)</span>
+<span class="n">df_trees</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA_PATH</span> <span class="o">/</span> <span class="s2">&quot;03_tree.csv&quot;</span><span class="p">)</span>
+<span class="n">col</span> <span class="o">=</span> <span class="s2">&quot;site_name_label&quot;</span>
+<span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df_trees</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">df_trees</span> <span class="o">=</span> <span class="n">df_trees</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_plots</span><span class="p">[[</span><span class="s2">&quot;inventory_id&quot;</span><span class="p">,</span> <span class="n">col</span><span class="p">]],</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;inventory_id&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ind_lake</span> <span class="o">=</span> <span class="n">df_trees</span><span class="p">[</span><span class="n">df_trees</span><span class="p">[</span><span class="s1">&#39;site_name_label&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Independence Lake (IND)&#39;</span><span class="p">]</span>
+<span class="n">ind_lake</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>inventory_id</th>
+      <th>tree_id</th>
+      <th>tree_tag</th>
+      <th>tree_sp</th>
+      <th>tree_sp_scientific_name</th>
+      <th>tree_sp_vernacular_name</th>
+      <th>tree_status</th>
+      <th>tree_status_label</th>
+      <th>tree_dbh</th>
+      <th>tree_firedamage</th>
+      <th>tree_burn</th>
+      <th>tree_ht</th>
+      <th>tree_htlcb</th>
+      <th>tree_resprouting</th>
+      <th>tree_decay_class</th>
+      <th>tree_decay_class_label</th>
+      <th>treepost_scorch_m</th>
+      <th>treepost_scorch_per</th>
+      <th>treepost_torch_m</th>
+      <th>treepost_torch_per</th>
+      <th>treepost_bole_char_m</th>
+      <th>tree_notes</th>
+      <th>site_name_label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>240</th>
+      <td>53_pre_ind_burn3d</td>
+      <td>1</td>
+      <td>A</td>
+      <td>POTR</td>
+      <td>Populus tremuloides</td>
+      <td>NaN</td>
+      <td>Dead</td>
+      <td>Dead</td>
+      <td>30.1</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>15.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>1. All limbs and branches presents. Top pointe...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Independence Lake (IND)</td>
+    </tr>
+    <tr>
+      <th>241</th>
+      <td>53_pre_ind_burn3d</td>
+      <td>2</td>
+      <td>495</td>
+      <td>ABMA</td>
+      <td>Abies magnifica</td>
+      <td>NaN</td>
+      <td>Live</td>
+      <td>Live</td>
+      <td>14.4</td>
+      <td>NaN</td>
+      <td>True</td>
+      <td>4.2</td>
+      <td>1.2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.2</td>
+      <td>NaN</td>
+      <td>Independence Lake (IND)</td>
+    </tr>
+    <tr>
+      <th>242</th>
+      <td>53_pre_ind_burn3d</td>
+      <td>3</td>
+      <td>496</td>
+      <td>POTR</td>
+      <td>Populus tremuloides</td>
+      <td>NaN</td>
+      <td>Live</td>
+      <td>Live</td>
+      <td>9.5</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>7.8</td>
+      <td>3.5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Independence Lake (IND)</td>
+    </tr>
+    <tr>
+      <th>243</th>
+      <td>53_pre_ind_burn3d</td>
+      <td>4</td>
+      <td>497</td>
+      <td>PICO</td>
+      <td>Pinus contorta</td>
+      <td>NaN</td>
+      <td>Live</td>
+      <td>Live</td>
+      <td>53.0</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>15.0</td>
+      <td>1.3</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Independence Lake (IND)</td>
+    </tr>
+    <tr>
+      <th>244</th>
+      <td>53_pre_ind_burn3d</td>
+      <td>5</td>
+      <td>498</td>
+      <td>ABMA</td>
+      <td>Abies magnifica</td>
+      <td>NaN</td>
+      <td>Live</td>
+      <td>Live</td>
+      <td>11.8</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>4.0</td>
+      <td>1.5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Independence Lake (IND)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fia_ca_plot_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA_PATH</span> <span class="o">/</span> <span class="s1">&#39;CA_PLOT.csv&#39;</span><span class="p">,</span> <span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fia_ca_tree_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA_PATH</span> <span class="o">/</span> <span class="s1">&#39;CA_TREE.csv&#39;</span><span class="p">,</span> <span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">fia_ref_species_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">DATA_PATH</span> <span class="o">/</span> <span class="s1">&#39;REF_SPECIES.csv&#39;</span><span class="p">)</span>
+
+<span class="n">fia_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fia_ca_tree_table</span><span class="p">,</span> <span class="n">fia_ca_plot_table</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;PLT_CN&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;CN&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">spcd_to_common_name</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">fia_ref_species_table</span><span class="p">[</span><span class="s1">&#39;SPCD&#39;</span><span class="p">],</span> <span class="n">fia_ref_species_table</span><span class="p">[</span><span class="s1">&#39;COMMON_NAME&#39;</span><span class="p">]))</span>
+<span class="n">fia_data</span><span class="p">[</span><span class="s2">&quot;COMMON_NAME&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fia_data</span><span class="p">[</span><span class="s2">&quot;SPCD&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">spcd_to_common_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ind_eco</span> <span class="o">=</span> <span class="n">fia_data</span><span class="p">[</span><span class="n">fia_data</span><span class="p">[</span><span class="s1">&#39;ECOSUBCD&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;M261Ej&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop rows with NaN values</span>
+<span class="n">ind_eco_clean</span> <span class="o">=</span> <span class="n">ind_eco</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;HT&quot;</span><span class="p">,</span> <span class="s2">&quot;DIA&quot;</span><span class="p">])</span>
+<span class="n">ind_lake</span> <span class="o">=</span> <span class="n">ind_lake</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">ind_lake</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;tree_ht_ft&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ind_lake</span><span class="p">[</span><span class="s1">&#39;tree_ht&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">3.281</span>
+<span class="n">ind_lake</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;tree_dbh_in&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ind_lake</span><span class="p">[</span><span class="s1">&#39;tree_dbh&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mf">2.54</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># First plot: ind_eco_clean</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">ind_eco_clean</span><span class="p">[</span><span class="s2">&quot;HT&quot;</span><span class="p">],</span> <span class="n">ind_eco_clean</span><span class="p">[</span><span class="s2">&quot;DIA&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">ind_eco_clean</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+    <span class="n">m1</span><span class="p">,</span> <span class="n">b1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">ind_eco_clean</span><span class="p">[</span><span class="s2">&quot;HT&quot;</span><span class="p">],</span> <span class="n">ind_eco_clean</span><span class="p">[</span><span class="s2">&quot;DIA&quot;</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ind_eco_clean</span><span class="p">[</span><span class="s2">&quot;HT&quot;</span><span class="p">],</span> <span class="n">m1</span> <span class="o">*</span> <span class="n">ind_eco_clean</span><span class="p">[</span><span class="s2">&quot;HT&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">b1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;y = </span><span class="si">{</span><span class="n">m1</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">x + </span><span class="si">{</span><span class="n">b1</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Tree Height vs. Diameter at Independence Lake</span><span class="se">\n</span><span class="s2"> Based on FIA Data&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Height (ft)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Diameter (in)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># Second plot: ind_lake</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">ind_lake</span><span class="p">[</span><span class="s2">&quot;tree_ht_ft&quot;</span><span class="p">],</span> <span class="n">ind_lake</span><span class="p">[</span><span class="s2">&quot;tree_dbh_in&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">ind_lake</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+    <span class="n">m2</span><span class="p">,</span> <span class="n">b2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">ind_lake</span><span class="p">[</span><span class="s2">&quot;tree_ht_ft&quot;</span><span class="p">],</span> <span class="n">ind_lake</span><span class="p">[</span><span class="s2">&quot;tree_dbh_in&quot;</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ind_lake</span><span class="p">[</span><span class="s2">&quot;tree_ht_ft&quot;</span><span class="p">],</span> <span class="n">m2</span> <span class="o">*</span> <span class="n">ind_lake</span><span class="p">[</span><span class="s2">&quot;tree_ht_ft&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">b2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;y = </span><span class="si">{</span><span class="n">m2</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">x + </span><span class="si">{</span><span class="n">b2</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Tree Height vs. Diameter at Independence Lake</span><span class="se">\n</span><span class="s2"> Based on Field Data&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Height (ft)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Diameter (in)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># Adjust layout</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e03266e0d0e39b54ee82a79390c76164ef723bbe7b6ba60cb70c7a8e6a13e869.png" src="_images/e03266e0d0e39b54ee82a79390c76164ef723bbe7b6ba60cb70c7a8e6a13e869.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data1</span> <span class="o">=</span> <span class="n">ind_lake</span><span class="p">[</span><span class="s1">&#39;tree_dbh_in&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+<span class="n">data2</span> <span class="o">=</span> <span class="n">ind_eco</span><span class="p">[</span><span class="s1">&#39;DIA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">data_to_plot</span> <span class="o">=</span> <span class="p">[</span><span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">]</span>
+
+<span class="n">violins</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">data_to_plot</span><span class="p">,</span> <span class="n">showmeans</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">showmedians</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Distribution of Tree Diameters at Independence Lake: Field Data vs. FIA Database&#39;</span><span class="p">,</span>
+          <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Diameter (inches)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Dataset&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Field Data&#39;</span><span class="p">,</span> <span class="s1">&#39;FIA Database&#39;</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+
+<span class="c1"># Set colors for violin bodies</span>
+<span class="n">violins</span><span class="p">[</span><span class="s1">&#39;bodies&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;#D43F3A&#39;</span><span class="p">)</span>
+<span class="n">violins</span><span class="p">[</span><span class="s1">&#39;bodies&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;#3A87D4&#39;</span><span class="p">)</span>
+
+<span class="c1"># Customize violin plot elements</span>
+<span class="k">for</span> <span class="n">partname</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;cbars&#39;</span><span class="p">,</span> <span class="s1">&#39;cmins&#39;</span><span class="p">,</span> <span class="s1">&#39;cmaxes&#39;</span><span class="p">,</span> <span class="s1">&#39;cmeans&#39;</span><span class="p">,</span> <span class="s1">&#39;cmedians&#39;</span><span class="p">):</span>
+    <span class="n">vp</span> <span class="o">=</span> <span class="n">violins</span><span class="p">[</span><span class="n">partname</span><span class="p">]</span>
+    <span class="n">vp</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+    <span class="n">vp</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Calculate statistics for annotations</span>
+<span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span><span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">]</span>
+<span class="n">positions</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">datasets</span><span class="p">):</span>
+    <span class="n">median</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">min_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">max_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="c1"># Annotate the points</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Min: </span><span class="si">{</span><span class="n">min_val</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">min_val</span><span class="p">),</span> 
+                 <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">min_val</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>
+                 <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.8</span><span class="p">))</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Median: </span><span class="si">{</span><span class="n">median</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">median</span><span class="p">),</span> 
+                 <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">median</span><span class="p">),</span>
+                 <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.8</span><span class="p">))</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mean: </span><span class="si">{</span><span class="n">mean</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">mean</span><span class="p">),</span> 
+                 <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">mean</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+                 <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.8</span><span class="p">))</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Max: </span><span class="si">{</span><span class="n">max_val</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">max_val</span><span class="p">),</span> 
+                 <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">positions</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">max_val</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+                 <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.8</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9f14413f93ef4b61f15b87f466ebf9253c77a9a6ceebdcc8daa2cb30a675ab33.png" src="_images/9f14413f93ef4b61f15b87f466ebf9253c77a9a6ceebdcc8daa2cb30a675ab33.png" />
+</div>
+</div>
+<p><strong>Thoughts</strong>: We can see that the FIA Data has a lot more datapoints than the Field Data at Independence Lake, leading to a much larger range of values for both diameter and height. However, the measures or central tendency between the two are still fairly similar as shown in the violin plot, with both distributions centering around 13-14 inches of diameter. Overall, we think that the FIA Data is certainly more detailed than the Field Data, making it more reliable for future analysis.</p>
+</section>
+<section id="part-2-examination-of-trees-at-shaver-lake">
+<h3>Part 2: Examination of trees at Shaver Lake<a class="headerlink" href="#part-2-examination-of-trees-at-shaver-lake" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shaver Lake</span>
+<span class="n">shaver_lake</span> <span class="o">=</span> <span class="n">df_trees</span><span class="p">[</span><span class="n">df_trees</span><span class="p">[</span><span class="s1">&#39;site_name_label&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Shaver Lake (SHA)&#39;</span><span class="p">]</span>
+<span class="n">shaver_data</span> <span class="o">=</span> <span class="n">fia_data</span><span class="p">[</span><span class="n">fia_data</span><span class="p">[</span><span class="s1">&#39;ECOSUBCD&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;M261Ep&#39;</span><span class="p">]</span>
+<span class="n">shaver_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CN_x</th>
+      <th>PLT_CN</th>
+      <th>PREV_TRE_CN</th>
+      <th>INVYR_x</th>
+      <th>STATECD_x</th>
+      <th>UNITCD_x</th>
+      <th>COUNTYCD_x</th>
+      <th>PLOT_x</th>
+      <th>SUBP</th>
+      <th>TREE</th>
+      <th>CONDID</th>
+      <th>PREVCOND</th>
+      <th>STATUSCD</th>
+      <th>SPCD</th>
+      <th>SPGRPCD</th>
+      <th>DIA</th>
+      <th>DIAHTCD</th>
+      <th>HT</th>
+      <th>HTCD</th>
+      <th>ACTUALHT</th>
+      <th>TREECLCD</th>
+      <th>CR</th>
+      <th>CCLCD</th>
+      <th>TREEGRCD</th>
+      <th>AGENTCD</th>
+      <th>CULL</th>
+      <th>DAMLOC1</th>
+      <th>DAMTYP1</th>
+      <th>DAMSEV1</th>
+      <th>DAMLOC2</th>
+      <th>DAMTYP2</th>
+      <th>DAMSEV2</th>
+      <th>DECAYCD</th>
+      <th>STOCKING</th>
+      <th>WDLDSTEM</th>
+      <th>VOLCFNET</th>
+      <th>VOLCFGRS</th>
+      <th>VOLCSNET</th>
+      <th>VOLCSGRS</th>
+      <th>VOLBFNET</th>
+      <th>VOLBFGRS</th>
+      <th>VOLCFSND</th>
+      <th>DIACHECK</th>
+      <th>MORTYR</th>
+      <th>SALVCD</th>
+      <th>UNCRCD</th>
+      <th>CPOSCD</th>
+      <th>CLIGHTCD</th>
+      <th>CVIGORCD</th>
+      <th>CDENCD</th>
+      <th>CDIEBKCD</th>
+      <th>TRANSCD</th>
+      <th>TREEHISTCD</th>
+      <th>BHAGE</th>
+      <th>TOTAGE</th>
+      <th>CULLDEAD</th>
+      <th>CULLFORM</th>
+      <th>CULLMSTOP</th>
+      <th>CULLBF</th>
+      <th>CULLCF</th>
+      <th>BFSND</th>
+      <th>CFSND</th>
+      <th>SAWHT</th>
+      <th>BOLEHT</th>
+      <th>FORMCL</th>
+      <th>HTCALC</th>
+      <th>HRDWD_CLUMP_CD</th>
+      <th>SITREE</th>
+      <th>CREATED_DATE_x</th>
+      <th>MODIFIED_DATE_x</th>
+      <th>MORTCD</th>
+      <th>HTDMP</th>
+      <th>ROUGHCULL</th>
+      <th>MIST_CL_CD</th>
+      <th>CULL_FLD</th>
+      <th>RECONCILECD</th>
+      <th>PREVDIA</th>
+      <th>P2A_GRM_FLG</th>
+      <th>TREECLCD_NERS</th>
+      <th>TREECLCD_SRS</th>
+      <th>TREECLCD_NCRS</th>
+      <th>TREECLCD_RMRS</th>
+      <th>STANDING_DEAD_CD</th>
+      <th>PREV_STATUS_CD</th>
+      <th>PREV_WDLDSTEM</th>
+      <th>TPA_UNADJ</th>
+      <th>DRYBIO_BOLE</th>
+      <th>DRYBIO_STUMP</th>
+      <th>DRYBIO_BG</th>
+      <th>CARBON_AG</th>
+      <th>CARBON_BG</th>
+      <th>CYCLE_x</th>
+      <th>SUBCYCLE_x</th>
+      <th>BORED_CD_PNWRS</th>
+      <th>DAMLOC1_PNWRS</th>
+      <th>DAMLOC2_PNWRS</th>
+      <th>DIACHECK_PNWRS</th>
+      <th>DMG_AGENT1_CD_PNWRS</th>
+      <th>DMG_AGENT2_CD_PNWRS</th>
+      <th>DMG_AGENT3_CD_PNWRS</th>
+      <th>MIST_CL_CD_PNWRS</th>
+      <th>SEVERITY1_CD_PNWRS</th>
+      <th>SEVERITY1A_CD_PNWRS</th>
+      <th>SEVERITY1B_CD_PNWRS</th>
+      <th>SEVERITY2_CD_PNWRS</th>
+      <th>SEVERITY2A_CD_PNWRS</th>
+      <th>SEVERITY2B_CD_PNWRS</th>
+      <th>SEVERITY3_CD_PNWRS</th>
+      <th>UNKNOWN_DAMTYP1_PNWRS</th>
+      <th>UNKNOWN_DAMTYP2_PNWRS</th>
+      <th>PREV_PNTN_SRS</th>
+      <th>DISEASE_SRS</th>
+      <th>DIEBACK_SEVERITY_SRS</th>
+      <th>DAMAGE_AGENT_CD1</th>
+      <th>DAMAGE_AGENT_CD2</th>
+      <th>DAMAGE_AGENT_CD3</th>
+      <th>CENTROID_DIA</th>
+      <th>CENTROID_DIA_HT</th>
+      <th>CENTROID_DIA_HT_ACTUAL</th>
+      <th>UPPER_DIA</th>
+      <th>UPPER_DIA_HT</th>
+      <th>VOLCSSND</th>
+      <th>DRYBIO_SAWLOG</th>
+      <th>DAMAGE_AGENT_CD1_SRS</th>
+      <th>DAMAGE_AGENT_CD2_SRS</th>
+      <th>DAMAGE_AGENT_CD3_SRS</th>
+      <th>DRYBIO_AG</th>
+      <th>ACTUALHT_CALC</th>
+      <th>ACTUALHT_CALC_CD</th>
+      <th>CULL_BF_ROTTEN</th>
+      <th>CULL_BF_ROTTEN_CD</th>
+      <th>CULL_BF_ROUGH</th>
+      <th>CULL_BF_ROUGH_CD</th>
+      <th>PREVDIA_FLD</th>
+      <th>TREECLCD_31_NCRS</th>
+      <th>TREE_GRADE_NCRS</th>
+      <th>BOUGHS_AVAILABLE_NCRS</th>
+      <th>BOUGHS_HRVST_NCRS</th>
+      <th>TREECLCD_31_NERS</th>
+      <th>AGENTCD_NERS</th>
+      <th>BFSNDCD_NERS</th>
+      <th>AGECHKCD_RMRS</th>
+      <th>PREV_ACTUALHT_RMRS</th>
+      <th>PREV_AGECHKCD_RMRS</th>
+      <th>PREV_BHAGE_RMRS</th>
+      <th>PREV_HT_RMRS</th>
+      <th>PREV_TOTAGE_RMRS</th>
+      <th>PREV_TREECLCD_RMRS</th>
+      <th>RADAGECD_RMRS</th>
+      <th>RADGRW_RMRS</th>
+      <th>VOLBSGRS</th>
+      <th>VOLBSNET</th>
+      <th>SAPLING_FUSIFORM_SRS</th>
+      <th>EPIPHYTE_PNWRS</th>
+      <th>ROOT_HT_PNWRS</th>
+      <th>CAVITY_USE_PNWRS</th>
+      <th>CORE_LENGTH_PNWRS</th>
+      <th>CULTURALLY_KILLED_PNWRS</th>
+      <th>DIA_EST_PNWRS</th>
+      <th>GST_PNWRS</th>
+      <th>INC10YR_PNWRS</th>
+      <th>INC5YRHT_PNWRS</th>
+      <th>INC5YR_PNWRS</th>
+      <th>RING_COUNT_INNER_2INCHES_PNWRS</th>
+      <th>RING_COUNT_PNWRS</th>
+      <th>SNAG_DIS_CD_PNWRS</th>
+      <th>CONEPRESCD1</th>
+      <th>CONEPRESCD2</th>
+      <th>CONEPRESCD3</th>
+      <th>MASTCD</th>
+      <th>VOLTSGRS</th>
+      <th>VOLTSGRS_BARK</th>
+      <th>VOLTSSND</th>
+      <th>VOLTSSND_BARK</th>
+      <th>VOLCFGRS_STUMP</th>
+      <th>VOLCFGRS_STUMP_BARK</th>
+      <th>VOLCFSND_STUMP</th>
+      <th>VOLCFSND_STUMP_BARK</th>
+      <th>VOLCFGRS_BARK</th>
+      <th>VOLCFGRS_TOP</th>
+      <th>VOLCFGRS_TOP_BARK</th>
+      <th>VOLCFSND_BARK</th>
+      <th>VOLCFSND_TOP</th>
+      <th>VOLCFSND_TOP_BARK</th>
+      <th>VOLCFNET_BARK</th>
+      <th>VOLCSGRS_BARK</th>
+      <th>VOLCSSND_BARK</th>
+      <th>VOLCSNET_BARK</th>
+      <th>DRYBIO_STEM</th>
+      <th>DRYBIO_STEM_BARK</th>
+      <th>DRYBIO_STUMP_BARK</th>
+      <th>DRYBIO_BOLE_BARK</th>
+      <th>DRYBIO_BRANCH</th>
+      <th>DRYBIO_FOLIAGE</th>
+      <th>DRYBIO_SAWLOG_BARK</th>
+      <th>PREV_ACTUALHT_FLD</th>
+      <th>PREV_HT_FLD</th>
+      <th>CN_y</th>
+      <th>SRV_CN</th>
+      <th>CTY_CN</th>
+      <th>PREV_PLT_CN</th>
+      <th>INVYR_y</th>
+      <th>STATECD_y</th>
+      <th>UNITCD_y</th>
+      <th>COUNTYCD_y</th>
+      <th>PLOT_y</th>
+      <th>PLOT_STATUS_CD</th>
+      <th>PLOT_NONSAMPLE_REASN_CD</th>
+      <th>MEASYEAR</th>
+      <th>MEASMON</th>
+      <th>MEASDAY</th>
+      <th>REMPER</th>
+      <th>KINDCD</th>
+      <th>DESIGNCD</th>
+      <th>RDDISTCD</th>
+      <th>WATERCD</th>
+      <th>LAT</th>
+      <th>LON</th>
+      <th>ELEV</th>
+      <th>GROW_TYP_CD</th>
+      <th>MORT_TYP_CD</th>
+      <th>P2PANEL</th>
+      <th>P3PANEL</th>
+      <th>ECOSUBCD</th>
+      <th>CONGCD</th>
+      <th>MANUAL</th>
+      <th>KINDCD_NC</th>
+      <th>QA_STATUS</th>
+      <th>CREATED_DATE_y</th>
+      <th>MODIFIED_DATE_y</th>
+      <th>MICROPLOT_LOC</th>
+      <th>DECLINATION</th>
+      <th>EMAP_HEX</th>
+      <th>SAMP_METHOD_CD</th>
+      <th>SUBP_EXAMINE_CD</th>
+      <th>MACRO_BREAKPOINT_DIA</th>
+      <th>INTENSITY</th>
+      <th>CYCLE_y</th>
+      <th>SUBCYCLE_y</th>
+      <th>ECO_UNIT_PNW</th>
+      <th>TOPO_POSITION_PNW</th>
+      <th>NF_SAMPLING_STATUS_CD</th>
+      <th>NF_PLOT_STATUS_CD</th>
+      <th>NF_PLOT_NONSAMPLE_REASN_CD</th>
+      <th>P2VEG_SAMPLING_STATUS_CD</th>
+      <th>P2VEG_SAMPLING_LEVEL_DETAIL_CD</th>
+      <th>INVASIVE_SAMPLING_STATUS_CD</th>
+      <th>INVASIVE_SPECIMEN_RULE_CD</th>
+      <th>DESIGNCD_P2A</th>
+      <th>MANUAL_DB</th>
+      <th>SUBPANEL</th>
+      <th>CONDCHNGCD_RMRS</th>
+      <th>FUTFORCD_RMRS</th>
+      <th>MANUAL_NCRS</th>
+      <th>MANUAL_NERS</th>
+      <th>MANUAL_RMRS</th>
+      <th>PAC_ISLAND_PNWRS</th>
+      <th>PLOT_SEASON_NERS</th>
+      <th>PRECIPITATION</th>
+      <th>PREV_MICROPLOT_LOC_RMRS</th>
+      <th>PREV_PLOT_STATUS_CD_RMRS</th>
+      <th>REUSECD1</th>
+      <th>REUSECD2</th>
+      <th>REUSECD3</th>
+      <th>GRND_LYR_SAMPLING_STATUS_CD</th>
+      <th>GRND_LYR_SAMPLING_METHOD_CD</th>
+      <th>COMMON_NAME</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>37997</th>
+      <td>681824</td>
+      <td>11955</td>
+      <td>NaN</td>
+      <td>1994</td>
+      <td>6</td>
+      <td>5</td>
+      <td>19</td>
+      <td>19</td>
+      <td>1</td>
+      <td>681824</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>122.0</td>
+      <td>11</td>
+      <td>34.6</td>
+      <td>1.0</td>
+      <td>164.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>55.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>90.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.952</td>
+      <td>NaN</td>
+      <td>398.670013</td>
+      <td>403.890015</td>
+      <td>396.552002</td>
+      <td>401.066010</td>
+      <td>2830.399902</td>
+      <td>2929.764893</td>
+      <td>398.670013</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>117.0</td>
+      <td>128.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2012-12-17 02:40:14</td>
+      <td>2024-01-30 11:59:20</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.931800</td>
+      <td>9453.263348</td>
+      <td>291.255644</td>
+      <td>3104.104027</td>
+      <td>7123.917123</td>
+      <td>1592.405366</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>13886.778017</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>68.675015</td>
+      <td>2228.979989</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>11955</td>
+      <td>153648000020004</td>
+      <td>11010497</td>
+      <td>NaN</td>
+      <td>1994</td>
+      <td>6</td>
+      <td>5</td>
+      <td>19</td>
+      <td>19</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>1993</td>
+      <td>9</td>
+      <td>15</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>555</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>37.043518</td>
+      <td>-119.322891</td>
+      <td>4500.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>M261Ep</td>
+      <td>605.0</td>
+      <td>0.1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2012-12-13 15:18:16</td>
+      <td>2023-12-04 15:14:44</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>ponderosa pine</td>
+    </tr>
+    <tr>
+      <th>37998</th>
+      <td>681825</td>
+      <td>11955</td>
+      <td>NaN</td>
+      <td>1994</td>
+      <td>6</td>
+      <td>5</td>
+      <td>19</td>
+      <td>19</td>
+      <td>1</td>
+      <td>681825</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>81.0</td>
+      <td>20</td>
+      <td>16.3</td>
+      <td>1.0</td>
+      <td>75.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>75.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>90.0</td>
+      <td>5.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.868</td>
+      <td>NaN</td>
+      <td>29.450001</td>
+      <td>31.120001</td>
+      <td>29.025999</td>
+      <td>30.681000</td>
+      <td>154.789993</td>
+      <td>166.505005</td>
+      <td>29.450001</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>55.0</td>
+      <td>70.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2012-12-17 02:40:14</td>
+      <td>2024-01-30 11:59:20</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.209799</td>
+      <td>643.188022</td>
+      <td>35.667253</td>
+      <td>197.535159</td>
+      <td>469.832811</td>
+      <td>106.273916</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>873.295187</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>4.331024</td>
+      <td>78.101403</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>11955</td>
+      <td>153648000020004</td>
+      <td>11010497</td>
+      <td>NaN</td>
+      <td>1994</td>
+      <td>6</td>
+      <td>5</td>
+      <td>19</td>
+      <td>19</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>1993</td>
+      <td>9</td>
+      <td>15</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>555</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>37.043518</td>
+      <td>-119.322891</td>
+      <td>4500.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>M261Ep</td>
+      <td>605.0</td>
+      <td>0.1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2012-12-13 15:18:16</td>
+      <td>2023-12-04 15:14:44</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>incense-cedar</td>
+    </tr>
+    <tr>
+      <th>37999</th>
+      <td>681826</td>
+      <td>11955</td>
+      <td>NaN</td>
+      <td>1994</td>
+      <td>6</td>
+      <td>5</td>
+      <td>19</td>
+      <td>19</td>
+      <td>1</td>
+      <td>681826</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>81.0</td>
+      <td>20</td>
+      <td>19.8</td>
+      <td>1.0</td>
+      <td>73.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>65.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.624</td>
+      <td>NaN</td>
+      <td>44.840000</td>
+      <td>45.169998</td>
+      <td>44.471001</td>
+      <td>44.796001</td>
+      <td>240.380005</td>
+      <td>248.688004</td>
+      <td>44.840000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>55.0</td>
+      <td>70.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2012-12-17 02:40:14</td>
+      <td>2024-01-30 11:59:20</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.840600</td>
+      <td>979.305600</td>
+      <td>51.261779</td>
+      <td>297.740979</td>
+      <td>710.997854</td>
+      <td>160.184647</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1321.557349</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>6.224645</td>
+      <td>118.915680</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>11955</td>
+      <td>153648000020004</td>
+      <td>11010497</td>
+      <td>NaN</td>
+      <td>1994</td>
+      <td>6</td>
+      <td>5</td>
+      <td>19</td>
+      <td>19</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>1993</td>
+      <td>9</td>
+      <td>15</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>555</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>37.043518</td>
+      <td>-119.322891</td>
+      <td>4500.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>M261Ep</td>
+      <td>605.0</td>
+      <td>0.1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2012-12-13 15:18:16</td>
+      <td>2023-12-04 15:14:44</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>incense-cedar</td>
+    </tr>
+    <tr>
+      <th>38000</th>
+      <td>681827</td>
+      <td>11955</td>
+      <td>NaN</td>
+      <td>1994</td>
+      <td>6</td>
+      <td>5</td>
+      <td>19</td>
+      <td>19</td>
+      <td>1</td>
+      <td>681827</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>81.0</td>
+      <td>20</td>
+      <td>18.0</td>
+      <td>1.0</td>
+      <td>69.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>65.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.744</td>
+      <td>NaN</td>
+      <td>35.119999</td>
+      <td>35.310001</td>
+      <td>34.812000</td>
+      <td>34.949001</td>
+      <td>183.710007</td>
+      <td>188.787994</td>
+      <td>35.119999</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>55.0</td>
+      <td>70.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2012-12-17 02:40:14</td>
+      <td>2024-01-30 11:59:20</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.454800</td>
+      <td>767.020778</td>
+      <td>41.293636</td>
+      <td>234.298884</td>
+      <td>558.463946</td>
+      <td>126.052800</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1038.037073</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>5.014227</td>
+      <td>93.138237</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>11955</td>
+      <td>153648000020004</td>
+      <td>11010497</td>
+      <td>NaN</td>
+      <td>1994</td>
+      <td>6</td>
+      <td>5</td>
+      <td>19</td>
+      <td>19</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>1993</td>
+      <td>9</td>
+      <td>15</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>555</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>37.043518</td>
+      <td>-119.322891</td>
+      <td>4500.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>M261Ep</td>
+      <td>605.0</td>
+      <td>0.1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2012-12-13 15:18:16</td>
+      <td>2023-12-04 15:14:44</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>incense-cedar</td>
+    </tr>
+    <tr>
+      <th>38001</th>
+      <td>681828</td>
+      <td>11955</td>
+      <td>NaN</td>
+      <td>1994</td>
+      <td>6</td>
+      <td>5</td>
+      <td>19</td>
+      <td>19</td>
+      <td>2</td>
+      <td>681828</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>122.0</td>
+      <td>11</td>
+      <td>33.8</td>
+      <td>1.0</td>
+      <td>131.0</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>45.0</td>
+      <td>2.0</td>
+      <td>NaN</td>
+      <td>90.0</td>
+      <td>18.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>3.977</td>
+      <td>NaN</td>
+      <td>250.600006</td>
+      <td>307.359985</td>
+      <td>248.268005</td>
+      <td>305.204987</td>
+      <td>1456.020020</td>
+      <td>2152.010010</td>
+      <td>250.600006</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>135.0</td>
+      <td>146.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2012-12-17 02:40:14</td>
+      <td>2024-01-30 11:59:20</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.977800</td>
+      <td>5942.227342</td>
+      <td>185.037417</td>
+      <td>1952.452656</td>
+      <td>4479.767521</td>
+      <td>1001.608213</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>1.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>8732.490293</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>43.629875</td>
+      <td>1401.114658</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>11955</td>
+      <td>153648000020004</td>
+      <td>11010497</td>
+      <td>NaN</td>
+      <td>1994</td>
+      <td>6</td>
+      <td>5</td>
+      <td>19</td>
+      <td>19</td>
+      <td>1</td>
+      <td>NaN</td>
+      <td>1993</td>
+      <td>9</td>
+      <td>15</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>555</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>37.043518</td>
+      <td>-119.322891</td>
+      <td>4500.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>M261Ep</td>
+      <td>605.0</td>
+      <td>0.1</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2012-12-13 15:18:16</td>
+      <td>2023-12-04 15:14:44</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>4</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>ponderosa pine</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Drop rows with NaN values</span>
+<span class="n">shaver_data</span> <span class="o">=</span> <span class="n">shaver_data</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;HT&quot;</span><span class="p">,</span> <span class="s2">&quot;DIA&quot;</span><span class="p">])</span>
+<span class="n">shaver_lake</span> <span class="o">=</span> <span class="n">shaver_lake</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">shaver_lake</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;tree_ht_ft&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shaver_lake</span><span class="p">[</span><span class="s1">&#39;tree_ht&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mf">3.281</span>
+<span class="n">shaver_lake</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;tree_dbh_in&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shaver_lake</span><span class="p">[</span><span class="s1">&#39;tree_dbh&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mf">2.54</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># First plot: ind_eco_clean</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">shaver_data</span><span class="p">[</span><span class="s2">&quot;HT&quot;</span><span class="p">],</span> <span class="n">shaver_data</span><span class="p">[</span><span class="s2">&quot;DIA&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">shaver_data</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+    <span class="n">m1</span><span class="p">,</span> <span class="n">b1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">shaver_data</span><span class="p">[</span><span class="s2">&quot;HT&quot;</span><span class="p">],</span> <span class="n">shaver_data</span><span class="p">[</span><span class="s2">&quot;DIA&quot;</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">shaver_data</span><span class="p">[</span><span class="s2">&quot;HT&quot;</span><span class="p">],</span> <span class="n">m1</span> <span class="o">*</span> <span class="n">shaver_data</span><span class="p">[</span><span class="s2">&quot;HT&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">b1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;y = </span><span class="si">{</span><span class="n">m1</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">x + </span><span class="si">{</span><span class="n">b1</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Tree Height vs. Diameter at Shaver Lake</span><span class="se">\n</span><span class="s2"> Based on FIA Data&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Height (ft)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Diameter (in)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># Second plot: ind_lake</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">shaver_lake</span><span class="p">[</span><span class="s2">&quot;tree_ht_ft&quot;</span><span class="p">],</span> <span class="n">shaver_lake</span><span class="p">[</span><span class="s2">&quot;tree_dbh_in&quot;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">ind_lake</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>
+    <span class="n">m2</span><span class="p">,</span> <span class="n">b2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">shaver_lake</span><span class="p">[</span><span class="s2">&quot;tree_ht_ft&quot;</span><span class="p">],</span> <span class="n">shaver_lake</span><span class="p">[</span><span class="s2">&quot;tree_dbh_in&quot;</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">shaver_lake</span><span class="p">[</span><span class="s2">&quot;tree_ht_ft&quot;</span><span class="p">],</span> <span class="n">m2</span> <span class="o">*</span> <span class="n">shaver_lake</span><span class="p">[</span><span class="s2">&quot;tree_ht_ft&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">b2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;y = </span><span class="si">{</span><span class="n">m2</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">x + </span><span class="si">{</span><span class="n">b2</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Tree Height vs. Diameter at Independence Lake</span><span class="se">\n</span><span class="s2"> Based on Field Data&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Height (ft)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Diameter (in)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># Adjust layout</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/89e80667485f3963218a0a9f406d8926e76ad97a7978064eccf04015289f58c3.png" src="_images/89e80667485f3963218a0a9f406d8926e76ad97a7978064eccf04015289f58c3.png" />
+</div>
+</div>
+<p><strong>Thoughts</strong>: The relationship between tree height and diameter is slightly stronger at Independence Lake (y = 0.30x + 0.76) compared to Shaver Lake (y = 0.27x - 0.10), indicating that tree diameters increase slightly more per unit of height at Independence Lake. However, trees at Shaver Lake tend to grow taller and thicker overall, with heights exceeding 250 ft and diameters reaching 70+ inches, while those at Independence Lake remain more compact aside from a select few outliers. The wider spread in the Shaver Lake data suggests greater variability in tree growth, possibly due to environmental differences like species composition or resource availability. Despite the small difference in slope, these trends highlight how growth patterns can vary between ecosystems.</p>
+</section>
+<section id="part-3-better-modeling-of-dbh-from-height-at-independence-lake">
+<h3>Part 3: Better Modeling of DBH from Height at Independence Lake<a class="headerlink" href="#part-3-better-modeling-of-dbh-from-height-at-independence-lake" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Task 3 - Your code here</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
+
+<span class="n">ind_eco_lr</span> <span class="o">=</span> <span class="n">ind_eco</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;DIA&#39;</span><span class="p">])</span>
+
+<span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;DRYBIO_STUMP&quot;</span><span class="p">,</span> <span class="s2">&quot;VOLCFNET&quot;</span><span class="p">,</span> <span class="s2">&quot;VOLBFNET&quot;</span><span class="p">,</span> <span class="s2">&quot;CARBON_AG&quot;</span><span class="p">]</span>
+
+<span class="n">final_lr</span> <span class="o">=</span> <span class="n">ind_eco_lr</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="n">features</span><span class="p">)</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">final_lr</span><span class="p">[</span><span class="n">features</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">final_lr</span><span class="p">[</span><span class="s2">&quot;DIA&quot;</span><span class="p">]</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Simple Linear Regression Model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean Squared Error: </span><span class="si">{</span><span class="n">mse</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;R-squared: </span><span class="si">{</span><span class="n">r2</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mean Squared Error: 4.72
+R-squared: 0.94
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot predictions vs actual</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="nb">min</span><span class="p">(</span><span class="n">y_test</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">y_test</span><span class="p">)],</span> <span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="n">y_test</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">y_test</span><span class="p">)],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>  <span class="c1"># Line of perfect fit</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Actual DIA&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Predicted DIA&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Actual vs Predicted Diameters at Independence Lake&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2feeb0ec51b438d5860b7530660e5e875487244f3726fb5b299e971b9abad335.png" src="_images/2feeb0ec51b438d5860b7530660e5e875487244f3726fb5b299e971b9abad335.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate residuals</span>
+<span class="n">residuals</span> <span class="o">=</span> <span class="n">y_test</span> <span class="o">-</span> <span class="n">y_pred</span>
+
+<span class="c1"># Scatter plot of residuals</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">residuals</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>  <span class="c1"># Reference line at zero</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Actual DIA&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Residuals (Actual - Predicted)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Residual Plot of Linear Regression Model&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4c245331db35e1bfbd737eb9df37fb93e8a3b1f2019338b9feaa7a1a9740eed1.png" src="_images/4c245331db35e1bfbd737eb9df37fb93e8a3b1f2019338b9feaa7a1a9740eed1.png" />
+</div>
+</div>
+<p><strong>Thoughts</strong>: These residuals don’t look great (looks like heteroscedasticity), so let’s try a different modeling approach:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">GradientBoostingRegressor</span>
+
+<span class="c1"># Gradient Boosting Regression</span>
+<span class="n">gb_model</span> <span class="o">=</span> <span class="n">GradientBoostingRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">learning_rate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">gb_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_pred_gb</span> <span class="o">=</span> <span class="n">gb_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">mse_gb</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_gb</span><span class="p">)</span>
+<span class="n">r2_gb</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_gb</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Gradient Boosting Regression - MSE: </span><span class="si">{</span><span class="n">mse_gb</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, R²: </span><span class="si">{</span><span class="n">r2_gb</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">residuals_2</span> <span class="o">=</span> <span class="n">y_test</span> <span class="o">-</span> <span class="n">y_pred_gb</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="nb">min</span><span class="p">(</span><span class="n">y_test</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">y_test</span><span class="p">)],</span> <span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="n">y_test</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">y_test</span><span class="p">)],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>  <span class="c1"># Line of perfect fit</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Actual DIA&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Predicted DIA&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Actual vs Predicted Diameters at Independence Lake</span><span class="se">\n</span><span class="s2"> Gradient Boosted Model&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">residuals_2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Actual DIA&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Residuals (Actual - Predicted)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Residual Plot (Gradient Boosted)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Gradient Boosting Regression - MSE: 3.12, R²: 0.96
+</pre></div>
+</div>
+<img alt="_images/bdd0081767ae259e62e54d6c556bb828cd209d5d184e66709a3ac9d33eee537a.png" src="_images/bdd0081767ae259e62e54d6c556bb828cd209d5d184e66709a3ac9d33eee537a.png" />
+<img alt="_images/fd136ac544f69edce9da3f73191c194aaef62067a605fe3f94d868fa166c6338.png" src="_images/fd136ac544f69edce9da3f73191c194aaef62067a605fe3f94d868fa166c6338.png" />
+</div>
+</div>
+<p><strong>Thoughts</strong>: Those look much better aside from one large outlier, and our MSE and R^2 remained promising with the Gradient Boosting.</p>
+</section>
+<section id="part-4-model-evaluation">
+<h3>Part 4: Model Evaluation<a class="headerlink" href="#part-4-model-evaluation" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">ind_eco_clean</span><span class="p">[</span><span class="s2">&quot;HT&quot;</span><span class="p">],</span> <span class="n">ind_eco_clean</span><span class="p">[</span><span class="s2">&quot;DIA&quot;</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Predict DBH using Task 2 model</span>
+<span class="n">ind_lake</span><span class="p">[</span><span class="s2">&quot;predicted_dbh&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">ind_lake</span><span class="p">[</span><span class="s2">&quot;tree_ht_ft&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">intercept</span>
+
+<span class="c1"># Calculate RMSE</span>
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">ind_lake</span><span class="p">[</span><span class="s2">&quot;tree_dbh_in&quot;</span><span class="p">],</span> <span class="n">ind_lake</span><span class="p">[</span><span class="s2">&quot;predicted_dbh&quot;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RMSE: </span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> inches&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot actual vs. predicted</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">ind_lake</span><span class="p">[</span><span class="s2">&quot;tree_dbh_in&quot;</span><span class="p">],</span> <span class="n">ind_lake</span><span class="p">[</span><span class="s2">&quot;predicted_dbh&quot;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">ind_lake</span><span class="p">[</span><span class="s2">&quot;tree_dbh_in&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">ind_lake</span><span class="p">[</span><span class="s2">&quot;tree_dbh_in&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span>
+         <span class="p">[</span><span class="n">ind_lake</span><span class="p">[</span><span class="s2">&quot;tree_dbh_in&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">ind_lake</span><span class="p">[</span><span class="s2">&quot;tree_dbh_in&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span>
+         <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Actual DBH (in)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Predicted DBH (in)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Actual vs Predicted DBH for Independence Lake Field Data</span><span class="se">\n</span><span class="s2">(Using FIA Linear Model)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RMSE: 4.39 inches
+</pre></div>
+</div>
+<img alt="_images/3d3e8dfe9fc531956b0276e98897ab25ee6d0947d62e95b54933a7c3d1e532d6.png" src="_images/3d3e8dfe9fc531956b0276e98897ab25ee6d0947d62e95b54933a7c3d1e532d6.png" />
+</div>
+</div>
+<p>We applied the linear regression model from Task 2 (trained on FIA data using only tree height) to the field data collected at Independence Lake. Before making predictions, we converted the units in the field data so that they matched the FIA dataset:</p>
+<ul class="simple">
+<li><p>Tree height was converted from meters to feet.</p></li>
+<li><p>Tree diameter (DBH) was converted from centimeters to inches.</p></li>
+</ul>
+<p>The predicted DBH values were then compared to the actual DBH values from the field data using RMSE (Root Mean Squared Error) as our evaluation metric. The RMSE was approximately 4.39 inches, telling us the model is fairly accurate.</p>
+<p><strong>Model Limitations</strong>:</p>
+<ul class="simple">
+<li><p>The model was trained on data from a large ecosystem-wide dataset (FIA), while the test set (field data) comes from a single site with potentially different species composition and measurement methods.</p></li>
+<li><p>The linear model only considers tree height. In reality, diameter is influenced by many other variables (e.g. species, age, competition, environmental stress).</p></li>
+<li><p>The field dataset is smaller, which can magnify the effect of any outliers or anomalies.</p></li>
+</ul>
+<p><strong>Why we didn’t use the Gradient Boosting Model from Task 3</strong>:
+The model built in Task 3 used several features — such as <code class="docutils literal notranslate"><span class="pre">DRYBIO_STUMP</span></code>, <code class="docutils literal notranslate"><span class="pre">VOLCFNET</span></code>, and <code class="docutils literal notranslate"><span class="pre">CARBON_AG</span></code> — which are not present in the field data. Because of this mismatch in feature availability, we could not apply that model directly to the field dataset without unrealistic assumptions or imputation.</p>
+<p><strong>What data would help improve our model?</strong></p>
+<ul class="simple">
+<li><p><strong>Species information</strong>: Different tree species grow differently, and modeling DBH by species would likely reduce error.</p></li>
+<li><p><strong>Biomass and carbon estimates</strong>: Including volume or carbon content improves predictions, as shown in Task 3.</p></li>
+<li><p><strong>More training data from the same site</strong>: A site-specific model trained on past field data from Independence Lake would likely generalize better to future measurements from the same area.</p></li>
+</ul>
+<p>In summary, while the height-only model gives a decent first approximation, adding more ecological variables and using local data would significantly enhance model accuracy.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Fire-Ready Forests Data Challenge</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="sprint2a.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Sprint 2, Module A</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-exploring-fia-and-field-data-at-independence-lake">Part 1: Exploring FIA and field data at Independence Lake</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-examination-of-trees-at-shaver-lake">Part 2: Examination of trees at Shaver Lake</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-3-better-modeling-of-dbh-from-height-at-independence-lake">Part 3: Better Modeling of DBH from Height at Independence Lake</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-4-model-evaluation">Part 4: Model Evaluation</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Pranav Rajaram
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

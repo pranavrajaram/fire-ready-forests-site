@@ -1,0 +1,1371 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Sprint 3 &#8212; Fire-Ready Forests Data Challenge</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sprint3';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Sprint 4" href="sprint4.html" />
+    <link rel="prev" title="Sprint 2, Module B" href="sprint2b.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/trees.png" class="logo__image only-light" alt="Fire-Ready Forests Data Challenge - Home"/>
+    <script>document.write(`<img src="_static/trees.png" class="logo__image only-dark" alt="Fire-Ready Forests Data Challenge - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Fire-Ready Forests Data Challenge
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="sprint1.html">Sprint 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprint2a.html">Sprint 2, Module A</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprint2b.html">Sprint 2, Module B</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Sprint 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprint4.html">Sprint 4</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fsprint3.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/sprint3.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Sprint 3</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-tls-vs-field-data-at-shaver-lake">Part 1: TLS vs. Field Data at Shaver Lake</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#our-thoughts">Our Thoughts</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-modeling-diameter-species-and-cbh-at-shaver-lake">Part 2: Modeling Diameter, Species, and CBH at Shaver Lake</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-1-predicting-diameter-dia-from-height-ht">Model 1 – Predicting Diameter (DIA) from Height (HT)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-2-predicting-species-code-spcd-from-height">Model 2 – Predicting Species Code (SPCD) from Height</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-3-predicting-crown-base-height-cbh-from-height">Model 3 – Predicting Crown Base Height (CBH) from Height</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sprint-3">
+<h1>Sprint 3<a class="headerlink" href="#sprint-3" title="Link to this heading">#</a></h1>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this notebook, I explored how to use an ALS-derived treelist to predict missing tree attributes, namely Diameter, Crown Base Height, and Species. I also compared a TLS (Terrestrial Laser Scanning) derived dataset to a field-derived dataset at Shaver Lake.</p>
+<section id="part-1-tls-vs-field-data-at-shaver-lake">
+<h3>Part 1: TLS vs. Field Data at Shaver Lake<a class="headerlink" href="#part-1-tls-vs-field-data-at-shaver-lake" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Task 1 - Your code here</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Loading the full plots inventory</span>
+<span class="n">plot_inventory</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./01_plot_identification.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Specify our site of interest</span>
+<span class="n">site_name</span> <span class="o">=</span> <span class="s2">&quot;SHA&quot;</span>
+
+<span class="c1"># We only keep the inventory plots for Shaver Lake</span>
+<span class="n">shaver_inventory</span> <span class="o">=</span> <span class="n">plot_inventory</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">plot_inventory</span><span class="o">.</span><span class="n">site_name</span> <span class="o">==</span> <span class="n">site_name</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;inventory_id&#39;</span><span class="p">,</span> <span class="s1">&#39;plot_blk&#39;</span><span class="p">]]</span>
+<span class="n">shaver_inventory</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>inventory_id</th>
+      <th>plot_blk</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>143_pre_SHA_burn3d</td>
+      <td>CAFKU_0143_20240721_1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>140_pre_SHA_burn3d</td>
+      <td>CAFKU_0140_20240721_1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>152_pre_SHA_burn3d</td>
+      <td>CAFKU_0152_20240721_1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>147_pre_SHA_burn3d</td>
+      <td>CAFKU_0147_20240720_1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>151_pre_SHA_burn3d</td>
+      <td>CAFKU_0151_20240720_1</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We sample the first 5 plots</span>
+<span class="n">shaver_sample</span> <span class="o">=</span> <span class="n">shaver_inventory</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="c1"># Load both the TLS and the field collected treelist</span>
+<span class="n">tls_treelist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./TLS_treelist.csv&quot;</span><span class="p">)</span>
+<span class="n">field_treelist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;./03_tree.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># Filter tls_treelist based on plot_blk in ind_sample</span>
+<span class="n">tls_treelist_shaver</span> <span class="o">=</span> <span class="n">tls_treelist</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">shaver_sample</span><span class="p">[[</span><span class="s1">&#39;plot_blk&#39;</span><span class="p">]],</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;plot_blk&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+
+<span class="c1"># Filter field_treelist based on inventory_id in ind_sample</span>
+<span class="n">field_treelist_shaver</span> <span class="o">=</span> <span class="n">field_treelist</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">shaver_sample</span><span class="p">[[</span><span class="s1">&#39;inventory_id&#39;</span><span class="p">]],</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;inventory_id&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot trees from both sources</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">tls_treelist_shaver</span><span class="o">.</span><span class="n">H</span><span class="p">,</span> <span class="n">tls_treelist_shaver</span><span class="o">.</span><span class="n">DBH</span><span class="o">/</span><span class="mf">2.54</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;TLS&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">field_treelist_shaver</span><span class="o">.</span><span class="n">tree_ht</span><span class="p">,</span> <span class="n">field_treelist_shaver</span><span class="o">.</span><span class="n">tree_dbh</span><span class="o">/</span><span class="mi">10</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">marker</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span> <span class="s1">&#39;Field&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Height (m)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;DBH (cm)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;TLS vs Field Data at Shaver Lake&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;TLS vs Field Data at Shaver Lake&#39;)
+</pre></div>
+</div>
+<img alt="_images/38fb612c633263a0be2ef7f539777f290da5a9666d781d45dc4dd9fc312b65c0.png" src="_images/38fb612c633263a0be2ef7f539777f290da5a9666d781d45dc4dd9fc312b65c0.png" />
+</div>
+</div>
+<section id="our-thoughts">
+<h4>Our Thoughts<a class="headerlink" href="#our-thoughts" title="Link to this heading">#</a></h4>
+<p>The plots comparing TLS and Field data for Shaver Lake and Independence Lake reveal notable differences in tree structure and measurement consistency. At Shaver Lake, the TLS and Field data show a broader range of both height and DBH values, with TLS generally capturing larger DBH measurements than the Field method for taller trees. This suggests that TLS may be more effective at capturing larger trees, or that there is a systematic overestimation in TLS measurements. In contrast, the Independence Lake plot showed a tighter clustering of values and a smaller overall range in DBH, with the TLS and Field data aligning more closely, though TLS still slightly overestimates DBH.</p>
+<p>The discrepancies between the two treelists may be due to differences in forest structure. Shaver Lake appears to have more mature, taller trees with greater DBH, possibly leading to occlusion or shadowing in TLS measurements. In contrast, Independence Lake may have a denser, younger forest where TLS and Field measurements are more easily matched. These observations generally align with what we found by comparing the two sites in previous sprints as well. Other factors such as terrain, scanner setup, and environmental conditions at the time of data collection could also contribute to these differences.</p>
+</section>
+</section>
+<section id="part-2-modeling-diameter-species-and-cbh-at-shaver-lake">
+<h3>Part 2: Modeling Diameter, Species, and CBH at Shaver Lake<a class="headerlink" href="#part-2-modeling-diameter-species-and-cbh-at-shaver-lake" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span><span class="p">,</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span> <span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">ConfusionMatrixDisplay</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ALS_treetops</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./ALS_treetops.csv&#39;</span><span class="p">)</span>
+<span class="n">FF_treelist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;FF_treelist_all.csv&#39;</span><span class="p">)</span>
+<span class="n">fia_ref_species_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./REF_SPECIES.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">site_name</span> <span class="o">=</span> <span class="s1">&#39;SHA&#39;</span>
+
+<span class="c1"># Filter ALS treetops by site</span>
+<span class="n">ALS_treetops_filter</span> <span class="o">=</span> <span class="n">ALS_treetops</span><span class="p">[</span><span class="n">ALS_treetops</span><span class="o">.</span><span class="n">site_name</span> <span class="o">==</span> <span class="n">site_name</span><span class="p">]</span>
+
+<span class="c1"># For FastFuels treelist, filter by site</span>
+<span class="n">FF_treelist_filter</span> <span class="o">=</span> <span class="n">FF_treelist</span><span class="p">[</span><span class="n">FF_treelist</span><span class="o">.</span><span class="n">site_name</span> <span class="o">==</span> <span class="n">site_name</span><span class="p">]</span>
+
+<span class="c1"># Rename height column for ALS file (if needed)</span>
+<span class="n">ALS_treetops_filter</span> <span class="o">=</span> <span class="n">ALS_treetops_filter</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;height_m&#39;</span><span class="p">:</span> <span class="s1">&#39;HT&#39;</span><span class="p">})</span>
+
+<span class="c1"># Convert ALS treetops to a GeoDataFrame using coordinates (assumes columns X_4326 and Y_4326)</span>
+<span class="n">ALS_treetops_gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span>
+    <span class="n">ALS_treetops_filter</span><span class="p">,</span>
+    <span class="n">geometry</span><span class="o">=</span><span class="n">gpd</span><span class="o">.</span><span class="n">points_from_xy</span><span class="p">(</span><span class="n">ALS_treetops_filter</span><span class="o">.</span><span class="n">X_4326</span><span class="p">,</span> <span class="n">ALS_treetops_filter</span><span class="o">.</span><span class="n">Y_4326</span><span class="p">),</span>
+    <span class="n">crs</span><span class="o">=</span><span class="mi">4326</span>
+<span class="p">)</span>
+
+<span class="c1"># Use the filtered FastFuels treelist as our training treelist</span>
+<span class="n">treelist</span> <span class="o">=</span> <span class="n">FF_treelist_filter</span>
+<span class="n">treelist</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SPCD</th>
+      <th>DIA</th>
+      <th>HT</th>
+      <th>STATUSCD</th>
+      <th>CBH</th>
+      <th>CR</th>
+      <th>X</th>
+      <th>Y</th>
+      <th>geometry</th>
+      <th>site_name</th>
+      <th>X_4326</th>
+      <th>Y_4326</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>23266</th>
+      <td>814</td>
+      <td>14.732</td>
+      <td>9.7536</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-2029248.192</td>
+      <td>1.811832e+06</td>
+      <td>POINT (-119.2807981866652 37.10055993214569)</td>
+      <td>SHA</td>
+      <td>-119.280798</td>
+      <td>37.100560</td>
+    </tr>
+    <tr>
+      <th>23267</th>
+      <td>814</td>
+      <td>14.732</td>
+      <td>9.7536</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-2029228.422</td>
+      <td>1.811843e+06</td>
+      <td>POINT (-119.2806115374424 37.10070078752966)</td>
+      <td>SHA</td>
+      <td>-119.280612</td>
+      <td>37.100701</td>
+    </tr>
+    <tr>
+      <th>23268</th>
+      <td>122</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>-2029212.404</td>
+      <td>1.811821e+06</td>
+      <td>POINT (-119.280374586538 37.10054546366893)</td>
+      <td>SHA</td>
+      <td>-119.280375</td>
+      <td>37.100545</td>
+    </tr>
+    <tr>
+      <th>23269</th>
+      <td>814</td>
+      <td>13.208</td>
+      <td>6.0960</td>
+      <td>1</td>
+      <td>2.13360</td>
+      <td>0.813356</td>
+      <td>-2029218.343</td>
+      <td>1.811834e+06</td>
+      <td>POINT (-119.2804745751547 37.10064118282663)</td>
+      <td>SHA</td>
+      <td>-119.280475</td>
+      <td>37.100641</td>
+    </tr>
+    <tr>
+      <th>23270</th>
+      <td>814</td>
+      <td>13.970</td>
+      <td>5.7912</td>
+      <td>1</td>
+      <td>3.18516</td>
+      <td>0.534938</td>
+      <td>-2029244.407</td>
+      <td>1.811816e+06</td>
+      <td>POINT (-119.2807125425391 37.10043003743448)</td>
+      <td>SHA</td>
+      <td>-119.280713</td>
+      <td>37.100430</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="model-1-predicting-diameter-dia-from-height-ht">
+<h2>Model 1 – Predicting Diameter (DIA) from Height (HT)<a class="headerlink" href="#model-1-predicting-diameter-dia-from-height-ht" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Diameter prediction: split treelist data into training and testing sets</span>
+<span class="n">independent_variables</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;HT&quot;</span><span class="p">]</span>
+<span class="n">dependent_variable</span> <span class="o">=</span> <span class="s2">&quot;DIA&quot;</span>
+<span class="n">include_variables</span> <span class="o">=</span> <span class="n">independent_variables</span> <span class="o">+</span> <span class="p">[</span><span class="n">dependent_variable</span><span class="p">]</span>
+
+<span class="n">trees_train</span><span class="p">,</span> <span class="n">trees_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">treelist</span><span class="p">[</span><span class="n">include_variables</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Training set size: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">trees_train</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test set size: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">trees_test</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Train Random Forest model for diameter prediction</span>
+<span class="n">model_ht</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">()</span>
+<span class="n">model_ht</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">trees_train</span><span class="p">[</span><span class="n">independent_variables</span><span class="p">],</span> <span class="n">trees_train</span><span class="p">[</span><span class="n">dependent_variable</span><span class="p">])</span>
+
+<span class="c1"># Predict on test set and on ALS data</span>
+<span class="n">predicted_dbh_test</span> <span class="o">=</span> <span class="n">model_ht</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">trees_test</span><span class="p">[</span><span class="n">independent_variables</span><span class="p">])</span>
+<span class="n">predicted_dbh</span> <span class="o">=</span> <span class="n">model_ht</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ALS_treetops_filter</span><span class="p">[</span><span class="n">independent_variables</span><span class="p">])</span>
+
+<span class="c1"># Evaluate model performance: R^2 and RMSE on test set</span>
+<span class="n">r2</span> <span class="o">=</span> <span class="n">model_ht</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">trees_test</span><span class="p">[</span><span class="n">independent_variables</span><span class="p">],</span> <span class="n">trees_test</span><span class="p">[</span><span class="n">dependent_variable</span><span class="p">])</span>
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(((</span><span class="n">predicted_dbh_test</span> <span class="o">-</span> <span class="n">trees_test</span><span class="p">[</span><span class="n">dependent_variable</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model R^2: </span><span class="si">{</span><span class="n">r2</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model RMSE: </span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> (cm)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training set size: 45013
+Test set size: 11254
+Model R^2: 0.92
+Model RMSE: 8.17 (cm)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot actual vs. predicted diameters on test data</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">trees_test</span> <span class="o">=</span> <span class="n">trees_test</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>  <span class="c1"># to avoid SettingWithCopyWarning</span>
+<span class="n">trees_test</span><span class="p">[</span><span class="s2">&quot;predicted_diameter&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">predicted_dbh_test</span>
+<span class="n">trees_test</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;DIA&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;predicted_diameter&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">upper_dia_limit</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">trees_test</span><span class="p">[</span><span class="s2">&quot;DIA&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">trees_test</span><span class="p">[</span><span class="s2">&quot;predicted_diameter&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">upper_dia_limit</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">upper_dia_limit</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Actual Diameter (cm)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Predicted Diameter (cm)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Validation Data: Diameter Prediction&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/44f5a964e3d99062910a2e1afbbfe94706e33221943903da8a63970749d823b4.png" src="_images/44f5a964e3d99062910a2e1afbbfe94706e33221943903da8a63970749d823b4.png" />
+</div>
+</div>
+<p>Now, we apply our diameter model to the ALS treetops.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predict diameter for ALS-derived treetops</span>
+<span class="n">ALS_treetops_filter</span><span class="p">[</span><span class="s2">&quot;predicted_diameter&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">predicted_dbh</span>
+
+<span class="c1"># Plot predicted diameter versus height for ALS trees</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ALS_treetops_filter</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;HT&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;predicted_diameter&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Height (m)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Predicted Diameter (cm)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Shaver Lake: Predicted Tree Diameter from ALS&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/4a68068280abe8209dcbb3100c4de81095ff17b148060a5fe88e4a943eda8cd3.png" src="_images/4a68068280abe8209dcbb3100c4de81095ff17b148060a5fe88e4a943eda8cd3.png" />
+</div>
+</div>
+</section>
+<section id="model-2-predicting-species-code-spcd-from-height">
+<h2>Model 2 – Predicting Species Code (SPCD) from Height<a class="headerlink" href="#model-2-predicting-species-code-spcd-from-height" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a dictionary mapping SPCD to common species names using FIA reference table</span>
+<span class="n">spcd_to_common_name</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">fia_ref_species_table</span><span class="p">[</span><span class="s1">&#39;SPCD&#39;</span><span class="p">],</span> <span class="n">fia_ref_species_table</span><span class="p">[</span><span class="s1">&#39;COMMON_NAME&#39;</span><span class="p">]))</span>
+
+<span class="c1"># Prepare data for species classification</span>
+<span class="n">independent_variables</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;HT&quot;</span><span class="p">]</span>
+<span class="n">dependent_variable</span> <span class="o">=</span> <span class="s2">&quot;SPCD&quot;</span>
+<span class="n">include_variables</span> <span class="o">=</span> <span class="n">independent_variables</span> <span class="o">+</span> <span class="p">[</span><span class="n">dependent_variable</span><span class="p">]</span>
+
+<span class="c1"># Split FastFuels treelist data (filtered for SHA) into training and test sets</span>
+<span class="n">trees_train</span><span class="p">,</span> <span class="n">trees_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">treelist</span><span class="p">[</span><span class="n">include_variables</span><span class="p">]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Training set size: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">trees_train</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test set size: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">trees_test</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Train a Random Forest Classifier for SPCD prediction</span>
+<span class="n">model_spcd</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">()</span>
+<span class="n">model_spcd</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">trees_train</span><span class="p">[</span><span class="n">independent_variables</span><span class="p">],</span> <span class="n">trees_train</span><span class="p">[</span><span class="n">dependent_variable</span><span class="p">])</span>
+
+<span class="c1"># Predict species on test set and on ALS data</span>
+<span class="n">predicted_spcd_test</span> <span class="o">=</span> <span class="n">model_spcd</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">trees_test</span><span class="p">[</span><span class="n">independent_variables</span><span class="p">])</span>
+<span class="n">predicted_spcd</span> <span class="o">=</span> <span class="n">model_spcd</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ALS_treetops_filter</span><span class="p">[</span><span class="n">independent_variables</span><span class="p">])</span>
+
+<span class="c1"># Evaluate classification performance with a classification report</span>
+<span class="n">unique_species</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">trees_test</span><span class="p">[</span><span class="n">dependent_variable</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="n">species_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">spcd_to_common_name</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">spcd</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Unknown (</span><span class="si">{</span><span class="n">spcd</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">spcd</span> <span class="ow">in</span> <span class="n">unique_species</span><span class="p">]</span>
+<span class="n">report</span> <span class="o">=</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">trees_test</span><span class="p">[</span><span class="n">dependent_variable</span><span class="p">],</span> <span class="n">predicted_spcd_test</span><span class="p">,</span> <span class="n">zero_division</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="n">species_names</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">report</span><span class="p">)</span>
+
+<span class="c1"># Display confusion matrix</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">trees_test</span><span class="p">[</span><span class="n">dependent_variable</span><span class="p">],</span> <span class="n">predicted_spcd_test</span><span class="p">)</span>
+<span class="n">disp</span> <span class="o">=</span> <span class="n">ConfusionMatrixDisplay</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">display_labels</span><span class="o">=</span><span class="n">species_names</span><span class="p">)</span>
+<span class="n">disp</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span> <span class="n">values_format</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Species Classification Confusion Matrix&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training set size: 45013
+Test set size: 11254
+                            precision    recall  f1-score   support
+
+                 white fir       0.57      0.65      0.61      2594
+                 grand fir       0.00      0.00      0.00        60
+        California red fir       0.00      0.00      0.00         2
+           western juniper       0.00      0.00      0.00         1
+             western larch       0.00      0.00      0.00         1
+             incense-cedar       0.69      0.77      0.73      4097
+            lodgepole pine       0.84      0.50      0.63        42
+              Jeffrey pine       0.86      0.07      0.13       263
+                sugar pine       0.61      0.49      0.54       886
+            ponderosa pine       0.71      0.73      0.72      2372
+               Douglas-fir       0.51      0.09      0.16       229
+           Pacific madrone       0.00      0.00      0.00         7
+curlleaf mountain-mahogany       0.00      0.00      0.00        12
+        eastern cottonwood       0.00      0.00      0.00         2
+             bitter cherry       0.49      1.00      0.66        82
+           canyon live oak       0.63      0.41      0.49       318
+                Gambel oak       1.00      0.38      0.56        13
+          Oregon white oak       0.62      0.23      0.33        35
+      California black oak       0.41      0.20      0.27       230
+      California white oak       0.00      0.00      0.00         8
+
+                  accuracy                           0.65     11254
+                 macro avg       0.40      0.28      0.29     11254
+              weighted avg       0.65      0.65      0.63     11254
+</pre></div>
+</div>
+<img alt="_images/ed908b89d781725dbc6a2f92e0361c716e5c5a44d395efcd9598a73177dd8878.png" src="_images/ed908b89d781725dbc6a2f92e0361c716e5c5a44d395efcd9598a73177dd8878.png" />
+</div>
+</div>
+<p>The model appears to misclassify white fir frequently as Douglas-fir, grand fir, and California black oak. There are also notable misclassifications of western larch as incense-cedar, Jeffrey pine as ponderosa pine, and California black oak as canyon live oak, indicating confusion among similar or visually overlapping species.</p>
+</section>
+<section id="model-3-predicting-crown-base-height-cbh-from-height">
+<h2>Model 3 – Predicting Crown Base Height (CBH) from Height<a class="headerlink" href="#model-3-predicting-crown-base-height-cbh-from-height" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">independent_variables</span> <span class="o">=</span> <span class="s2">&quot;HT&quot;</span>  <span class="c1"># single predictor</span>
+<span class="n">dependent_variable</span> <span class="o">=</span> <span class="s2">&quot;CBH&quot;</span>
+
+<span class="c1"># Use a 90/10 split for training and testing (adjust as needed)</span>
+<span class="n">trees_train</span><span class="p">,</span> <span class="n">trees_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">treelist</span><span class="p">[[</span><span class="s1">&#39;HT&#39;</span><span class="p">,</span> <span class="s1">&#39;CBH&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">(),</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Training set size: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">trees_train</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Test set size: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">trees_test</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Train Random Forest model for CBH prediction</span>
+<span class="n">model_cbh</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">()</span>
+<span class="n">model_cbh</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">trees_train</span><span class="p">[[</span><span class="n">independent_variables</span><span class="p">]],</span> <span class="n">trees_train</span><span class="p">[</span><span class="n">dependent_variable</span><span class="p">])</span>
+
+<span class="c1"># Predict CBH on test data and on ALS treetops</span>
+<span class="n">predicted_cbh_test</span> <span class="o">=</span> <span class="n">model_cbh</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">trees_test</span><span class="p">[[</span><span class="n">independent_variables</span><span class="p">]])</span>
+<span class="n">predicted_cbh</span> <span class="o">=</span> <span class="n">model_cbh</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">ALS_treetops_filter</span><span class="p">[[</span><span class="n">independent_variables</span><span class="p">]])</span>
+
+<span class="c1"># Evaluate model performance: R^2 and RMSE on test data</span>
+<span class="n">r2_cbh</span> <span class="o">=</span> <span class="n">model_cbh</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">trees_test</span><span class="p">[[</span><span class="n">independent_variables</span><span class="p">]],</span> <span class="n">trees_test</span><span class="p">[</span><span class="n">dependent_variable</span><span class="p">])</span>
+<span class="n">rmse_cbh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(((</span><span class="n">predicted_cbh_test</span> <span class="o">-</span> <span class="n">trees_test</span><span class="p">[</span><span class="n">dependent_variable</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model R^2: </span><span class="si">{</span><span class="n">r2_cbh</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Model RMSE: </span><span class="si">{</span><span class="n">rmse_cbh</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> (m)&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot actual vs. predicted CBH</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">trees_test</span> <span class="o">=</span> <span class="n">trees_test</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">trees_test</span><span class="p">[</span><span class="s2">&quot;predicted_cbh&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">predicted_cbh_test</span>
+<span class="n">trees_test</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;CBH&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;predicted_cbh&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">upper_cbh_limit</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">trees_test</span><span class="p">[</span><span class="s2">&quot;CBH&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">trees_test</span><span class="p">[</span><span class="s2">&quot;predicted_cbh&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">upper_cbh_limit</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">upper_cbh_limit</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Actual CBH (m)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Predicted CBH (m)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Validation Data: Crown Base Height Prediction&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training set size: 43967
+Test set size: 4886
+Model R^2: 0.85
+Model RMSE: 3.27 (m)
+</pre></div>
+</div>
+<img alt="_images/f92e904da2caf174568f1b4966977e2d8ca9249344bf898d927b6814b13291d8.png" src="_images/f92e904da2caf174568f1b4966977e2d8ca9249344bf898d927b6814b13291d8.png" />
+</div>
+</div>
+<p>Comparing with Field Data</p>
+<p>Now that we have predicted all three tree metrics on the ALS-detected trees, we will save the predictions as a new treelist and compare these results with field-collected observations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predicted_treelist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;treeID&#39;</span><span class="p">:</span> <span class="n">ALS_treetops_filter</span><span class="o">.</span><span class="n">treeID</span><span class="p">,</span>
+    <span class="s1">&#39;HT&#39;</span><span class="p">:</span> <span class="n">ALS_treetops_filter</span><span class="o">.</span><span class="n">HT</span><span class="p">,</span>
+    <span class="s1">&#39;DIA&#39;</span><span class="p">:</span> <span class="n">predicted_dbh</span><span class="p">,</span>
+    <span class="s1">&#39;SPCD&#39;</span><span class="p">:</span> <span class="n">predicted_spcd</span><span class="p">,</span>
+    <span class="s1">&#39;CBH&#39;</span><span class="p">:</span> <span class="n">predicted_cbh</span><span class="p">,</span>
+    <span class="s1">&#39;X_4326&#39;</span><span class="p">:</span> <span class="n">ALS_treetops_filter</span><span class="o">.</span><span class="n">X_4326</span><span class="p">,</span>
+    <span class="s1">&#39;Y_4326&#39;</span><span class="p">:</span> <span class="n">ALS_treetops_filter</span><span class="o">.</span><span class="n">Y_4326</span><span class="p">,</span>
+<span class="p">})</span>
+
+<span class="n">predicted_treelist</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>treeID</th>
+      <th>HT</th>
+      <th>DIA</th>
+      <th>SPCD</th>
+      <th>CBH</th>
+      <th>X_4326</th>
+      <th>Y_4326</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3120</th>
+      <td>1</td>
+      <td>23.800797</td>
+      <td>55.540907</td>
+      <td>81</td>
+      <td>8.407979</td>
+      <td>-119.274157</td>
+      <td>37.108535</td>
+    </tr>
+    <tr>
+      <th>3121</th>
+      <td>2</td>
+      <td>16.103474</td>
+      <td>28.740294</td>
+      <td>15</td>
+      <td>6.526245</td>
+      <td>-119.274331</td>
+      <td>37.108530</td>
+    </tr>
+    <tr>
+      <th>3122</th>
+      <td>3</td>
+      <td>37.818615</td>
+      <td>89.018722</td>
+      <td>122</td>
+      <td>20.640655</td>
+      <td>-119.274482</td>
+      <td>37.108500</td>
+    </tr>
+    <tr>
+      <th>3123</th>
+      <td>4</td>
+      <td>21.019176</td>
+      <td>52.739436</td>
+      <td>81</td>
+      <td>12.121794</td>
+      <td>-119.274285</td>
+      <td>37.108481</td>
+    </tr>
+    <tr>
+      <th>3124</th>
+      <td>5</td>
+      <td>16.300404</td>
+      <td>28.740294</td>
+      <td>15</td>
+      <td>6.526245</td>
+      <td>-119.274088</td>
+      <td>37.108478</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare predictions to field data using spatial join</span>
+<span class="c1"># Load plot boundaries and field tree data</span>
+<span class="n">plots_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./01_plot_identification.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># Create GeoDataFrame for plots (each unique spatial reference system is processed)</span>
+<span class="n">plots_intermediate</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">srs</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">plots_df</span><span class="o">.</span><span class="n">plot_coord_srs</span><span class="p">):</span>
+    <span class="n">plots_subset</span> <span class="o">=</span> <span class="n">plots_df</span><span class="p">[</span><span class="n">plots_df</span><span class="o">.</span><span class="n">plot_coord_srs</span> <span class="o">==</span> <span class="n">srs</span><span class="p">]</span>
+    <span class="n">plots_subset_gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span>
+        <span class="n">plots_subset</span><span class="p">,</span> 
+        <span class="n">geometry</span><span class="o">=</span><span class="n">gpd</span><span class="o">.</span><span class="n">points_from_xy</span><span class="p">(</span><span class="n">plots_subset</span><span class="o">.</span><span class="n">plot_coord_x</span><span class="p">,</span> <span class="n">plots_subset</span><span class="o">.</span><span class="n">plot_coord_y</span><span class="p">),</span> 
+        <span class="n">crs</span><span class="o">=</span><span class="n">srs</span>
+    <span class="p">)</span>
+    <span class="c1"># Reproject to EPSG 5070</span>
+    <span class="n">plots_subset_gdf</span> <span class="o">=</span> <span class="n">plots_subset_gdf</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="mi">5070</span><span class="p">)</span>
+    <span class="n">plots_intermediate</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">plots_subset_gdf</span><span class="p">)</span>
+
+<span class="n">plots_gdf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">plots_intermediate</span><span class="p">)</span>
+<span class="n">plots_gdf</span> <span class="o">=</span> <span class="n">plots_gdf</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;plot_blk&#39;</span><span class="p">])</span>
+
+<span class="n">plot_size</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">10</span>  <span class="c1"># acre</span>
+<span class="n">acre_to_m2</span> <span class="o">=</span> <span class="mf">4046.86</span>
+<span class="n">plot_size_m2</span> <span class="o">=</span> <span class="n">plot_size</span> <span class="o">*</span> <span class="n">acre_to_m2</span>
+<span class="n">plot_radius</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">plot_size_m2</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">plots_gdf</span> <span class="o">=</span> <span class="n">plots_gdf</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="n">plots_gdf</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="n">plot_radius</span><span class="p">))</span>
+
+<span class="c1"># Filter plots for site SHA</span>
+<span class="n">plots_filtered</span> <span class="o">=</span> <span class="n">plots_gdf</span><span class="p">[</span><span class="n">plots_gdf</span><span class="o">.</span><span class="n">site_name</span> <span class="o">==</span> <span class="n">site_name</span><span class="p">]</span>
+<span class="n">plots_filtered</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Plots at </span><span class="si">{</span><span class="n">site_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X (meters)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y (meters)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7fc4eb3758e64b1aa2ed3650bd84bef0fbcf1e21bcedc97cb06ccf5344ff408f.png" src="_images/7fc4eb3758e64b1aa2ed3650bd84bef0fbcf1e21bcedc97cb06ccf5344ff408f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">predicted_treelist_gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span>
+    <span class="n">predicted_treelist</span><span class="p">,</span>
+    <span class="n">geometry</span><span class="o">=</span><span class="n">gpd</span><span class="o">.</span><span class="n">points_from_xy</span><span class="p">(</span><span class="n">predicted_treelist</span><span class="o">.</span><span class="n">X_4326</span><span class="p">,</span> <span class="n">predicted_treelist</span><span class="o">.</span><span class="n">Y_4326</span><span class="p">),</span>
+    <span class="n">crs</span><span class="o">=</span><span class="mi">4326</span>
+<span class="p">)</span>
+<span class="n">predicted_treelist_gdf</span> <span class="o">=</span> <span class="n">predicted_treelist_gdf</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">plots_filtered</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+
+<span class="c1"># Spatial join to assign plots to predicted trees</span>
+<span class="n">predicted_treelist_plots</span> <span class="o">=</span> <span class="n">predicted_treelist_gdf</span><span class="o">.</span><span class="n">sjoin</span><span class="p">(</span><span class="n">plots_filtered</span><span class="p">)</span>
+
+
+<span class="n">field_data_trees</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;./03_tree.csv&#39;</span><span class="p">)</span>
+
+<span class="n">plot_id</span> <span class="o">=</span> <span class="n">plot_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">trees_filtered</span> <span class="o">=</span> <span class="n">field_data_trees</span><span class="p">[</span><span class="n">field_data_trees</span><span class="o">.</span><span class="n">inventory_id</span> <span class="o">==</span> <span class="n">plot_id</span><span class="p">]</span>
+<span class="n">predicted_treelist_filtered</span> <span class="o">=</span> <span class="n">predicted_treelist_plots</span><span class="p">[</span><span class="n">predicted_treelist_plots</span><span class="o">.</span><span class="n">inventory_id</span> <span class="o">==</span> <span class="n">plot_id</span><span class="p">]</span>
+
+<span class="n">predicted_treelist_filtered</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>treeID</th>
+      <th>HT</th>
+      <th>DIA</th>
+      <th>SPCD</th>
+      <th>CBH</th>
+      <th>X_4326</th>
+      <th>Y_4326</th>
+      <th>geometry</th>
+      <th>index_right</th>
+      <th>inventory_id</th>
+      <th>...</th>
+      <th>groundpost_cover_total</th>
+      <th>veg_cover_id</th>
+      <th>veg_cover_tot_veg_percent</th>
+      <th>veg_cover_tov_percent</th>
+      <th>veg_cover_und_percent</th>
+      <th>veg_cover_tos_percent</th>
+      <th>veg_cover_herb_percent</th>
+      <th>sp_invcov_id</th>
+      <th>sp_cov_inv_obs</th>
+      <th>sp_cov_inv_obs_label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9545</th>
+      <td>6436</td>
+      <td>13.405090</td>
+      <td>30.773926</td>
+      <td>81</td>
+      <td>7.036213</td>
+      <td>-119.274053</td>
+      <td>37.100451</td>
+      <td>POINT (-2028674.954 1811676.71)</td>
+      <td>38</td>
+      <td>100_pre_SHA_burn3d</td>
+      <td>...</td>
+      <td>100</td>
+      <td>1</td>
+      <td>40.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>33.0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>3.0</td>
+      <td>Abigail</td>
+    </tr>
+    <tr>
+      <th>9563</th>
+      <td>6454</td>
+      <td>13.098443</td>
+      <td>22.465848</td>
+      <td>81</td>
+      <td>4.437432</td>
+      <td>-119.274038</td>
+      <td>37.100426</td>
+      <td>POINT (-2028674.356 1811673.73)</td>
+      <td>38</td>
+      <td>100_pre_SHA_burn3d</td>
+      <td>...</td>
+      <td>100</td>
+      <td>1</td>
+      <td>40.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>33.0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>3.0</td>
+      <td>Abigail</td>
+    </tr>
+    <tr>
+      <th>9567</th>
+      <td>6458</td>
+      <td>11.713481</td>
+      <td>20.281709</td>
+      <td>15</td>
+      <td>7.247664</td>
+      <td>-119.274074</td>
+      <td>37.100423</td>
+      <td>POINT (-2028677.552 1811674.188)</td>
+      <td>38</td>
+      <td>100_pre_SHA_burn3d</td>
+      <td>...</td>
+      <td>100</td>
+      <td>1</td>
+      <td>40.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>33.0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>3.0</td>
+      <td>Abigail</td>
+    </tr>
+    <tr>
+      <th>9588</th>
+      <td>6479</td>
+      <td>14.202027</td>
+      <td>36.443269</td>
+      <td>81</td>
+      <td>7.182681</td>
+      <td>-119.274040</td>
+      <td>37.100393</td>
+      <td>POINT (-2028675.429 1811670.091)</td>
+      <td>38</td>
+      <td>100_pre_SHA_burn3d</td>
+      <td>...</td>
+      <td>100</td>
+      <td>1</td>
+      <td>40.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>33.0</td>
+      <td>1.0</td>
+      <td>1</td>
+      <td>3.0</td>
+      <td>Abigail</td>
+    </tr>
+  </tbody>
+</table>
+<p>4 rows × 70 columns</p>
+</div></div></div>
+</div>
+</section>
+<section id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">#</a></h2>
+<p>In this notebook we used the ALS-derived treelist and the FastFuels treelist as our training dataset to predict missing tree attributes (DIA, SPCD, and CBH) at Shaver Lake (SHA). Our simple models—based solely on height—perform reasonably well for lower diameters and show promise for species and CBH prediction, although additional predictors could further improve performance.</p>
+<p><strong>Training Data Considerations:</strong></p>
+<ul class="simple">
+<li><p><strong>FastFuels Treelist:</strong></p>
+<ul>
+<li><p><em>Pros:</em> Large sample size and extensive coverage; beneficial for machine learning model training.</p></li>
+<li><p><em>Cons:</em> May not capture local variability at SHA as accurately.</p></li>
+</ul>
+</li>
+<li><p><strong>FIA Data:</strong></p>
+<ul>
+<li><p><em>Pros:</em> Systematic and standardized measurements across regions.</p></li>
+<li><p><em>Cons:</em> Sampling resolution may be coarser and less representative of the continuous landscape.</p></li>
+</ul>
+</li>
+<li><p><strong>Field-Collected Data:</strong></p>
+<ul>
+<li><p><em>Pros:</em> Provides site-specific measurements that can capture local conditions and variability.</p></li>
+<li><p><em>Cons:</em> Often limited in sample size, which might reduce model generalizability.</p></li>
+</ul>
+</li>
+</ul>
+<p>In future iterations we may want to train separate models using FIA or field-collected data as our training dataset. Comparing RMSE, R², and classification accuracy across these models can help determine which source best suits our local prediction needs.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sprint2b.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Sprint 2, Module B</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="sprint4.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Sprint 4</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-1-tls-vs-field-data-at-shaver-lake">Part 1: TLS vs. Field Data at Shaver Lake</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#our-thoughts">Our Thoughts</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#part-2-modeling-diameter-species-and-cbh-at-shaver-lake">Part 2: Modeling Diameter, Species, and CBH at Shaver Lake</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-1-predicting-diameter-dia-from-height-ht">Model 1 – Predicting Diameter (DIA) from Height (HT)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-2-predicting-species-code-spcd-from-height">Model 2 – Predicting Species Code (SPCD) from Height</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-3-predicting-crown-base-height-cbh-from-height">Model 3 – Predicting Crown Base Height (CBH) from Height</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discussion">Discussion</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Pranav Rajaram
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
