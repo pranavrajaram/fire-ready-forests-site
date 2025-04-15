@@ -1,0 +1,1884 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Sprint 4 &#8212; Fire-Ready Forests Data Challenge</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sprint4';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Sprint 3" href="sprint3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/trees.png" class="logo__image only-light" alt="Fire-Ready Forests Data Challenge - Home"/>
+    <script>document.write(`<img src="_static/trees.png" class="logo__image only-dark" alt="Fire-Ready Forests Data Challenge - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Fire-Ready Forests Data Challenge
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="sprint1.html">Sprint 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprint2a.html">Sprint 2, Module A</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprint2b.html">Sprint 2, Module B</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sprint3.html">Sprint 3</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Sprint 4</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fsprint4.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/sprint4.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Sprint 4</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sprint-4">
+<h1>Sprint 4<a class="headerlink" href="#sprint-4" title="Link to this heading">#</a></h1>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In this final notebook, we applied the full pipeline to predict the Plant Functional Type (PFT), genus, and species of ecosystems using TLS-derived features. We joined TLS data with field-labeled inventories and built machine learning models to classify tree types. These predictions allow us to simulate vegetation composition in forests where only sensor data is available. The resulting labeled treelists provide a foundational input for physics-based wildfire models like QUIC-Fire, which require accurate representations of forest structure to simulate fire behavior.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import packages</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">classification_report</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">chained_assignment</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The most important datasets are the TLS generated treelists and the field collected treelists. These datasets contain information about trees in different ecosystems. We also loaded in a few other datasets that helped map these two treelists together so that we could have all of the necessary information in one place.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load in data</span>
+<span class="n">plot_inventory</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/01_plot_identification.csv&quot;</span><span class="p">)</span>
+<span class="n">tls_treelist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/TLS_treelist.csv&quot;</span><span class="p">)</span>
+<span class="n">field_treelist</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/03_tree.csv&quot;</span><span class="p">)</span>
+<span class="n">pft_ref</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/FIATreeSpeciesCode_pft.csv&quot;</span><span class="p">)</span>
+<span class="n">fia_ref_species_table</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/REF_SPECIES.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pft_full</span> <span class="o">=</span> <span class="n">pft_ref</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">fia_ref_species_table</span><span class="p">[[</span><span class="s1">&#39;COMMON_NAME&#39;</span><span class="p">,</span> <span class="s1">&#39;GENUS&#39;</span><span class="p">,</span> <span class="s1">&#39;SPECIES&#39;</span><span class="p">]],</span> <span class="n">on</span> <span class="o">=</span> <span class="s1">&#39;COMMON_NAME&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add in PFT labels to field treelist</span>
+<span class="n">field_pft</span> <span class="o">=</span> <span class="n">field_treelist</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">pft_full</span><span class="p">,</span> <span class="n">left_on</span> <span class="o">=</span> <span class="s1">&#39;tree_sp_scientific_name&#39;</span><span class="p">,</span> <span class="n">right_on</span> <span class="o">=</span> <span class="s1">&#39;SCI_NAME&#39;</span><span class="p">)</span>
+<span class="n">field_pft</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>inventory_id</th>
+      <th>tree_id</th>
+      <th>tree_tag</th>
+      <th>tree_sp</th>
+      <th>tree_sp_scientific_name</th>
+      <th>tree_sp_vernacular_name</th>
+      <th>tree_status</th>
+      <th>tree_status_label</th>
+      <th>tree_dbh</th>
+      <th>tree_firedamage</th>
+      <th>tree_burn</th>
+      <th>tree_ht</th>
+      <th>tree_htlcb</th>
+      <th>tree_resprouting</th>
+      <th>tree_decay_class</th>
+      <th>tree_decay_class_label</th>
+      <th>treepost_scorch_m</th>
+      <th>treepost_scorch_per</th>
+      <th>treepost_torch_m</th>
+      <th>treepost_torch_per</th>
+      <th>treepost_bole_char_m</th>
+      <th>tree_notes</th>
+      <th>SPCD</th>
+      <th>COMMON_NAME</th>
+      <th>SCI_NAME</th>
+      <th>SPGRPCD.E</th>
+      <th>SPGRPCD.W</th>
+      <th>MAJGRP</th>
+      <th>OCC.NC</th>
+      <th>OCC.NE</th>
+      <th>OCC.PNW</th>
+      <th>OCC.RM</th>
+      <th>OCC.SO</th>
+      <th>PFT</th>
+      <th>GENUS</th>
+      <th>SPECIES</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>143_pre_SHA_burn3d</td>
+      <td>6</td>
+      <td>209</td>
+      <td>CADE</td>
+      <td>Calocedrus decurrens</td>
+      <td>NaN</td>
+      <td>Live</td>
+      <td>Live</td>
+      <td>70.7</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>19.0</td>
+      <td>5.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>81</td>
+      <td>incense-cedar</td>
+      <td>Calocedrus decurrens</td>
+      <td>9</td>
+      <td>20</td>
+      <td>2</td>
+      <td>-</td>
+      <td>-</td>
+      <td>X</td>
+      <td>X</td>
+      <td>-</td>
+      <td>Evergreen conifer</td>
+      <td>Calocedrus</td>
+      <td>decurrens</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>143_pre_SHA_burn3d</td>
+      <td>11</td>
+      <td>B</td>
+      <td>CADE</td>
+      <td>Calocedrus decurrens</td>
+      <td>NaN</td>
+      <td>Dead</td>
+      <td>Dead</td>
+      <td>29.7</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>3.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2.0</td>
+      <td>2. Few limbs, no fine brances. Top bronken. Pe...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>81</td>
+      <td>incense-cedar</td>
+      <td>Calocedrus decurrens</td>
+      <td>9</td>
+      <td>20</td>
+      <td>2</td>
+      <td>-</td>
+      <td>-</td>
+      <td>X</td>
+      <td>X</td>
+      <td>-</td>
+      <td>Evergreen conifer</td>
+      <td>Calocedrus</td>
+      <td>decurrens</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>140_pre_SHA_burn3d</td>
+      <td>7</td>
+      <td>92</td>
+      <td>CADE</td>
+      <td>Calocedrus decurrens</td>
+      <td>NaN</td>
+      <td>Live</td>
+      <td>Live</td>
+      <td>10.2</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>5.0</td>
+      <td>0.5</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>81</td>
+      <td>incense-cedar</td>
+      <td>Calocedrus decurrens</td>
+      <td>9</td>
+      <td>20</td>
+      <td>2</td>
+      <td>-</td>
+      <td>-</td>
+      <td>X</td>
+      <td>X</td>
+      <td>-</td>
+      <td>Evergreen conifer</td>
+      <td>Calocedrus</td>
+      <td>decurrens</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>140_pre_SHA_burn3d</td>
+      <td>8</td>
+      <td>93</td>
+      <td>CADE</td>
+      <td>Calocedrus decurrens</td>
+      <td>NaN</td>
+      <td>Live</td>
+      <td>Live</td>
+      <td>10.6</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>5.0</td>
+      <td>0.2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>81</td>
+      <td>incense-cedar</td>
+      <td>Calocedrus decurrens</td>
+      <td>9</td>
+      <td>20</td>
+      <td>2</td>
+      <td>-</td>
+      <td>-</td>
+      <td>X</td>
+      <td>X</td>
+      <td>-</td>
+      <td>Evergreen conifer</td>
+      <td>Calocedrus</td>
+      <td>decurrens</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>140_pre_SHA_burn3d</td>
+      <td>9</td>
+      <td>94</td>
+      <td>CADE</td>
+      <td>Calocedrus decurrens</td>
+      <td>NaN</td>
+      <td>Live</td>
+      <td>Live</td>
+      <td>9.4</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>4.0</td>
+      <td>0.7</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>81</td>
+      <td>incense-cedar</td>
+      <td>Calocedrus decurrens</td>
+      <td>9</td>
+      <td>20</td>
+      <td>2</td>
+      <td>-</td>
+      <td>-</td>
+      <td>X</td>
+      <td>X</td>
+      <td>-</td>
+      <td>Evergreen conifer</td>
+      <td>Calocedrus</td>
+      <td>decurrens</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Below, we add in the field collected PFT, Genus, and Species labels to the TLS dataset. This will make up the “training data” for our modeling process, as we need to have some sort of known values of PFT, Genus, and Species so we can train a model to detect those patterns. It is worth noting that we lose quite a lot of data in this process, as of the 1,382 observations in the original TLS dataset, only 275 of them had a corresponding field collected entry.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add in PFT, GENUS, SPECIES labels to TLS treelist</span>
+<span class="n">tls_full</span> <span class="o">=</span> <span class="p">(</span><span class="n">tls_treelist</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">plot_inventory</span><span class="p">[[</span><span class="s1">&#39;plot_blk&#39;</span><span class="p">,</span> <span class="s1">&#39;inventory_id&#39;</span><span class="p">]],</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;plot_blk&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+<span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">field_pft</span><span class="p">[[</span><span class="s1">&#39;PFT&#39;</span><span class="p">,</span> <span class="s1">&#39;GENUS&#39;</span><span class="p">,</span> <span class="s1">&#39;SPECIES&#39;</span><span class="p">,</span> <span class="s1">&#39;inventory_id&#39;</span><span class="p">,</span> <span class="s1">&#39;tree_id&#39;</span><span class="p">]],</span>
+       <span class="n">left_on</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;inventory_id&#39;</span><span class="p">,</span><span class="s1">&#39;TreeID&#39;</span><span class="p">],</span> <span class="n">right_on</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;inventory_id&#39;</span><span class="p">,</span><span class="s1">&#39;tree_id&#39;</span><span class="p">],</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;inner&#39;</span><span class="p">))</span>
+<span class="n">tls_full</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>TreeID</th>
+      <th>X</th>
+      <th>Y</th>
+      <th>Radius</th>
+      <th>Error</th>
+      <th>H</th>
+      <th>h_radius</th>
+      <th>DBH</th>
+      <th>BasalA</th>
+      <th>plot_blk</th>
+      <th>inventory_id</th>
+      <th>PFT</th>
+      <th>GENUS</th>
+      <th>SPECIES</th>
+      <th>tree_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>1</td>
+      <td>10.673382</td>
+      <td>2.127033</td>
+      <td>0.266540</td>
+      <td>0.001199</td>
+      <td>12.560</td>
+      <td>1.3</td>
+      <td>20.987379</td>
+      <td>2.402324</td>
+      <td>CAFKU_0101_20240802_1</td>
+      <td>101_pre_SHA_burn3d</td>
+      <td>Evergreen conifer</td>
+      <td>Calocedrus</td>
+      <td>decurrens</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3</td>
+      <td>6</td>
+      <td>2.429448</td>
+      <td>1.055521</td>
+      <td>0.166444</td>
+      <td>0.000730</td>
+      <td>8.742</td>
+      <td>1.3</td>
+      <td>13.105771</td>
+      <td>0.936786</td>
+      <td>CAFKU_0101_20240802_1</td>
+      <td>101_pre_SHA_burn3d</td>
+      <td>Evergreen conifer</td>
+      <td>Calocedrus</td>
+      <td>decurrens</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5</td>
+      <td>9</td>
+      <td>1.962382</td>
+      <td>8.781092</td>
+      <td>0.267219</td>
+      <td>0.001217</td>
+      <td>18.144</td>
+      <td>1.3</td>
+      <td>21.040854</td>
+      <td>2.414582</td>
+      <td>CAFKU_0101_20240802_1</td>
+      <td>101_pre_SHA_burn3d</td>
+      <td>Evergreen conifer</td>
+      <td>Calocedrus</td>
+      <td>decurrens</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>6</td>
+      <td>12</td>
+      <td>1.433234</td>
+      <td>0.234223</td>
+      <td>0.208154</td>
+      <td>0.000543</td>
+      <td>13.790</td>
+      <td>1.3</td>
+      <td>16.390056</td>
+      <td>1.465130</td>
+      <td>CAFKU_0101_20240802_1</td>
+      <td>101_pre_SHA_burn3d</td>
+      <td>Evergreen conifer</td>
+      <td>Calocedrus</td>
+      <td>decurrens</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>3</td>
+      <td>3.842913</td>
+      <td>-2.520822</td>
+      <td>0.335033</td>
+      <td>0.000143</td>
+      <td>21.171</td>
+      <td>1.3</td>
+      <td>26.380520</td>
+      <td>3.795612</td>
+      <td>CATNF_6043_20240814_1</td>
+      <td>43_pre_ind_burn3d</td>
+      <td>Evergreen conifer</td>
+      <td>Pinus</td>
+      <td>jeffreyi</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>270</th>
+      <td>0</td>
+      <td>2</td>
+      <td>3.082390</td>
+      <td>7.990143</td>
+      <td>0.214055</td>
+      <td>0.000274</td>
+      <td>21.358</td>
+      <td>1.3</td>
+      <td>16.854690</td>
+      <td>1.549375</td>
+      <td>CATNF_6054_20240813_1</td>
+      <td>54_pre_ind_burn3d</td>
+      <td>Evergreen conifer</td>
+      <td>Abies</td>
+      <td>magnifica</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>271</th>
+      <td>3</td>
+      <td>5</td>
+      <td>2.101583</td>
+      <td>-6.279878</td>
+      <td>0.302285</td>
+      <td>0.000256</td>
+      <td>11.471</td>
+      <td>1.3</td>
+      <td>23.801953</td>
+      <td>3.089871</td>
+      <td>CATNF_6054_20240813_1</td>
+      <td>54_pre_ind_burn3d</td>
+      <td>Evergreen conifer</td>
+      <td>Abies</td>
+      <td>magnifica</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>272</th>
+      <td>4</td>
+      <td>6</td>
+      <td>1.764563</td>
+      <td>10.601396</td>
+      <td>0.182523</td>
+      <td>0.005669</td>
+      <td>22.188</td>
+      <td>1.3</td>
+      <td>14.371822</td>
+      <td>1.126520</td>
+      <td>CATNF_6054_20240813_1</td>
+      <td>54_pre_ind_burn3d</td>
+      <td>Evergreen conifer</td>
+      <td>Abies</td>
+      <td>magnifica</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>273</th>
+      <td>5</td>
+      <td>8</td>
+      <td>-0.549767</td>
+      <td>5.750922</td>
+      <td>0.047607</td>
+      <td>0.000821</td>
+      <td>21.001</td>
+      <td>1.3</td>
+      <td>3.748549</td>
+      <td>0.076638</td>
+      <td>CATNF_6054_20240813_1</td>
+      <td>54_pre_ind_burn3d</td>
+      <td>Evergreen conifer</td>
+      <td>Abies</td>
+      <td>magnifica</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>274</th>
+      <td>12</td>
+      <td>15</td>
+      <td>-0.788839</td>
+      <td>5.978487</td>
+      <td>0.282780</td>
+      <td>0.000279</td>
+      <td>21.445</td>
+      <td>1.3</td>
+      <td>22.266099</td>
+      <td>2.703980</td>
+      <td>CATNF_6054_20240813_1</td>
+      <td>54_pre_ind_burn3d</td>
+      <td>Evergreen conifer</td>
+      <td>Abies</td>
+      <td>magnifica</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+<p>275 rows × 16 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pft_counts</span> <span class="o">=</span> <span class="n">tls_full</span><span class="p">[</span><span class="s1">&#39;PFT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">bars</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">pft_counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">pft_counts</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">bar</span> <span class="ow">in</span> <span class="n">bars</span><span class="p">:</span>
+    <span class="n">bar</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+    <span class="n">bar</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;PFT Counts in TLS Treelist&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Plant Functional Type (PFT)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d92e8e9e41fd80f33d10625ff3a2a317e1f625e813f3b809cc2ef500aeb93a01.png" src="_images/d92e8e9e41fd80f33d10625ff3a2a317e1f625e813f3b809cc2ef500aeb93a01.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">genus_counts</span> <span class="o">=</span> <span class="n">tls_full</span><span class="p">[</span><span class="s1">&#39;GENUS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">bars</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">genus_counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">genus_counts</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">bar</span> <span class="ow">in</span> <span class="n">bars</span><span class="p">:</span>
+    <span class="n">bar</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+    <span class="n">bar</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Genus Counts in TLS Treelist&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Genus&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/57640777c1a6f241390627fa7f21b1f603a2cf2a8765088b56390de3c1028ab5.png" src="_images/57640777c1a6f241390627fa7f21b1f603a2cf2a8765088b56390de3c1028ab5.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">species_counts</span> <span class="o">=</span> <span class="n">tls_full</span><span class="p">[</span><span class="s1">&#39;SPECIES&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="n">bars</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">species_counts</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">species_counts</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">bar</span> <span class="ow">in</span> <span class="n">bars</span><span class="p">:</span>
+    <span class="n">bar</span><span class="o">.</span><span class="n">set_edgecolor</span><span class="p">(</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+    <span class="n">bar</span><span class="o">.</span><span class="n">set_linewidth</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Species Counts in TLS Treelist&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Species&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span> <span class="n">labelsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9f74b93eeb24e87d1e2ac0dd8d47e2560ff4c9f2cc8ecb501d9fb972314ce758.png" src="_images/9f74b93eeb24e87d1e2ac0dd8d47e2560ff4c9f2cc8ecb501d9fb972314ce758.png" />
+</div>
+</div>
+<p>The above three graphs show the distribution of our 3 variables of interest in the training data. We can see that modeling PFT could become problematic because the overwhelming majority of the entries are “Evergreen conifer”, so models will be privy to overfit. We plan on using oversampling to try and address this issue. The distributions are better spread out in the other two variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add a feature modeling crown volume as a cylinder</span>
+<span class="n">tls_full</span><span class="p">[</span><span class="s1">&#39;crown_volume&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tls_full</span><span class="p">[</span><span class="s1">&#39;Radius&#39;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">tls_full</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">]</span>
+
+<span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;DBH&#39;</span><span class="p">,</span> <span class="s1">&#39;Radius&#39;</span><span class="p">,</span> <span class="s1">&#39;H&#39;</span><span class="p">,</span> <span class="s1">&#39;BasalA&#39;</span><span class="p">,</span> <span class="s1">&#39;crown_volume&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will use 5 numeric features to try and predict PFT, Genus, and Species — a tree’s diameter, radius, height, basal area, and crown volume.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.ensemble</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomForestClassifier</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">classification_report</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">imblearn.over_sampling</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomOverSampler</span>
+
+<span class="c1"># Step 1: Define features and target</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">tls_full</span><span class="p">[</span><span class="n">features</span><span class="p">]</span>
+<span class="n">y_pft</span> <span class="o">=</span> <span class="n">tls_full</span><span class="p">[</span><span class="s1">&#39;PFT&#39;</span><span class="p">]</span>
+
+<span class="c1"># Drop rare PFTs with &lt;2 instances so we can stratify</span>
+<span class="n">pft_counts</span> <span class="o">=</span> <span class="n">y_pft</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">valid_pfts</span> <span class="o">=</span> <span class="n">pft_counts</span><span class="p">[</span><span class="n">pft_counts</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+<span class="n">filtered_data</span> <span class="o">=</span> <span class="n">tls_full</span><span class="p">[</span><span class="n">tls_full</span><span class="p">[</span><span class="s1">&#39;PFT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">valid_pfts</span><span class="p">)]</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="p">[</span><span class="n">features</span><span class="p">]</span>
+<span class="n">y_pft</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="p">[</span><span class="s1">&#39;PFT&#39;</span><span class="p">]</span>
+
+<span class="c1"># Train/test split with stratification</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y_pft</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_pft</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">12</span>
+<span class="p">)</span>
+
+<span class="c1"># Apply oversampling to training data to balance classes </span>
+<span class="n">ros</span> <span class="o">=</span> <span class="n">RandomOverSampler</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">X_train_resampled</span><span class="p">,</span> <span class="n">y_train_resampled</span> <span class="o">=</span> <span class="n">ros</span><span class="o">.</span><span class="n">fit_resample</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Train the model</span>
+<span class="n">pft_model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">pft_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_resampled</span><span class="p">,</span> <span class="n">y_train_resampled</span><span class="p">)</span>
+
+<span class="c1">#  Evaluate on test set</span>
+<span class="n">pft_preds</span> <span class="o">=</span> <span class="n">pft_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pft_preds</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                   precision    recall  f1-score   support
+
+        Deciduous       0.00      0.00      0.00         1
+Evergreen conifer       0.98      1.00      0.99        54
+
+         accuracy                           0.98        55
+        macro avg       0.49      0.50      0.50        55
+     weighted avg       0.96      0.98      0.97        55
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/pranavrajaram/Library/Python/3.10/lib/python/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+/Users/pranavrajaram/Library/Python/3.10/lib/python/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+/Users/pranavrajaram/Library/Python/3.10/lib/python/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can see that the model had an f1-score of 96%, which is promising but obviously a bit skewed because almost all of the entries were Evergreen conifers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># filter TLS to just have the TLS trees that do not have PFT labels</span>
+<span class="n">tls_only</span> <span class="o">=</span> <span class="n">tls_treelist</span><span class="p">[</span><span class="n">tls_treelist</span><span class="p">[</span><span class="s1">&#39;plot_blk&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">tls_full</span><span class="p">[</span><span class="s1">&#39;plot_blk&#39;</span><span class="p">])</span> <span class="o">==</span> <span class="kc">False</span><span class="p">]</span>
+<span class="n">tls_only</span><span class="p">[</span><span class="s1">&#39;crown_volume&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tls_only</span><span class="p">[</span><span class="s1">&#39;Radius&#39;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">tls_only</span><span class="p">[</span><span class="s1">&#39;H&#39;</span><span class="p">]</span>
+<span class="n">tls_only</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(850, 12)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since we now have a model that can predict PFT, we can apply it more “unseen” data. Specifically, we can take all of the TLS observations that did <em>not</em> have a corresponding field data entry, and try to predict their PFTs.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># predict PFT for unseen TLS trees</span>
+<span class="n">X_tls</span> <span class="o">=</span> <span class="n">tls_only</span><span class="p">[</span><span class="n">features</span><span class="p">]</span>
+<span class="n">tls_only</span><span class="p">[</span><span class="s1">&#39;predicted_pft&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pft_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_tls</span><span class="p">)</span>
+
+<span class="n">tls_only</span><span class="p">[</span><span class="s1">&#39;predicted_pft&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>predicted_pft
+Evergreen conifer    845
+Deciduous              5
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<p>It looks like the oversampling process was successful, as the model predicts 12 Deciduous compared to 0 when there was no oversampling. These results are still far from perfect as the field training data was not very representative, but the model still is capable of distinguishing between Evergreen conifers and Deciduous trees,</p>
+<p>Now, let’s apply a similar modeling process to try and predict Genus and Species.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Genus prediction</span>
+
+<span class="c1"># Feature matrix and target</span>
+<span class="n">X_genus</span> <span class="o">=</span> <span class="n">tls_full</span><span class="p">[</span><span class="n">features</span><span class="p">]</span>
+<span class="n">y_genus</span> <span class="o">=</span> <span class="n">tls_full</span><span class="p">[</span><span class="s1">&#39;GENUS&#39;</span><span class="p">]</span>
+
+<span class="c1"># Train/test split</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X_genus</span><span class="p">,</span> <span class="n">y_genus</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Train model</span>
+<span class="n">genus_model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">genus_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Evaluate</span>
+<span class="n">y_pred_genus</span> <span class="o">=</span> <span class="n">genus_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Classification Report - GENUS:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_genus</span><span class="p">))</span>
+
+<span class="c1"># Predict for TLS-only trees</span>
+<span class="n">tls_only</span><span class="p">[</span><span class="s1">&#39;predicted_genus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">genus_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">tls_only</span><span class="p">[</span><span class="n">features</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting 5 folds for each of 72 candidates, totalling 360 fits
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/pranavrajaram/Library/Python/3.10/lib/python/site-packages/sklearn/model_selection/_split.py:805: UserWarning: The least populated class in y has only 1 members, which is less than n_splits=5.
+  warnings.warn(
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Classification Report - GENUS (Tuned):
+
+              precision    recall  f1-score   support
+
+       Abies       0.00      0.00      0.00         9
+  Calocedrus       0.58      0.50      0.54        22
+       Pinus       0.43      0.59      0.50        22
+     Populus       0.00      0.00      0.00         2
+
+    accuracy                           0.44        55
+   macro avg       0.25      0.27      0.26        55
+weighted avg       0.40      0.44      0.41        55
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valid_species</span> <span class="o">=</span> <span class="n">species_counts</span><span class="p">[</span><span class="n">species_counts</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
+<span class="n">filtered_data_species</span> <span class="o">=</span> <span class="n">tls_full</span><span class="p">[</span><span class="n">tls_full</span><span class="p">[</span><span class="s1">&#39;SPECIES&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">valid_species</span><span class="p">)]</span>
+
+<span class="c1"># Feature matrix and target</span>
+<span class="n">X_species</span> <span class="o">=</span> <span class="n">filtered_data_species</span><span class="p">[</span><span class="n">features</span><span class="p">]</span>
+<span class="n">y_species</span> <span class="o">=</span> <span class="n">filtered_data_species</span><span class="p">[</span><span class="s1">&#39;SPECIES&#39;</span><span class="p">]</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X_species</span><span class="p">,</span> <span class="n">y_species</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y_species</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">12</span>
+<span class="p">)</span>
+
+<span class="c1"># Train model</span>
+<span class="n">species_model</span> <span class="o">=</span> <span class="n">RandomForestClassifier</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="s1">&#39;balanced&#39;</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">species_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Evaluate</span>
+<span class="n">y_pred_species</span> <span class="o">=</span> <span class="n">species_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_species</span><span class="p">))</span>
+
+<span class="c1"># Predict for TLS-only trees</span>
+<span class="n">tls_only</span><span class="p">[</span><span class="s1">&#39;predicted_species&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">species_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">tls_only</span><span class="p">[</span><span class="n">features</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>              precision    recall  f1-score   support
+
+    contorta       0.55      0.58      0.56        19
+   decurrens       0.54      0.65      0.59        23
+    jeffreyi       0.00      0.00      0.00         3
+ lambertiana       0.00      0.00      0.00         1
+   magnifica       0.00      0.00      0.00         7
+   ponderosa       0.00      0.00      0.00         1
+ tremuloides       0.00      0.00      0.00         1
+
+    accuracy                           0.47        55
+   macro avg       0.16      0.18      0.16        55
+weighted avg       0.41      0.47      0.44        55
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/pranavrajaram/Library/Python/3.10/lib/python/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+/Users/pranavrajaram/Library/Python/3.10/lib/python/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+/Users/pranavrajaram/Library/Python/3.10/lib/python/site-packages/sklearn/metrics/_classification.py:1565: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use `zero_division` parameter to control this behavior.
+  _warn_prf(average, modifier, f&quot;{metric.capitalize()} is&quot;, len(result))
+</pre></div>
+</div>
+</div>
+</div>
+<p>The models for Genus and Species had mixed results, with roughly a 50% F1 score. This is a decent starting point and shows that there certainly are trends that indicate a certain Genus or Species.</p>
+<p>Below, we show the most common combination of PFT, Genus, and Species in the TLS dataset according to the model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tls_only</span><span class="p">[[</span><span class="s1">&#39;predicted_pft&#39;</span><span class="p">,</span> <span class="s1">&#39;predicted_genus&#39;</span><span class="p">,</span> <span class="s1">&#39;predicted_species&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>predicted_pft      predicted_genus  predicted_species
+Evergreen conifer  Calocedrus       decurrens            323
+                   Pinus            contorta             199
+                                    decurrens            141
+                   Calocedrus       contorta              46
+                                    magnifica             29
+                   Pinus            jeffreyi              28
+                                    magnifica             18
+                   Abies            magnifica             15
+                                    decurrens             10
+                   Pinus            ponderosa             10
+                                    lambertiana            6
+                                    tremuloides            5
+                   Calocedrus       ponderosa              4
+                   Populus          contorta               4
+                   Calocedrus       tremuloides            2
+Deciduous          Pinus            contorta               2
+Evergreen conifer  Abies            contorta               2
+                   Calocedrus       lambertiana            2
+Deciduous          Abies            magnifica              1
+                   Populus          magnifica              1
+                   Pinus            decurrens              1
+Evergreen conifer  Quercus          ponderosa              1
+Name: count, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Aggregate pft predictions per plot</span>
+
+<span class="n">pft_plot_dist</span> <span class="o">=</span> <span class="n">tls_only</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;plot_blk&#39;</span><span class="p">,</span> <span class="s1">&#39;predicted_pft&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">pft_plot_dist</span><span class="p">[</span><span class="s1">&#39;pct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pft_plot_dist</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;plot_blk&#39;</span><span class="p">)[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Aggregate genus predictions per plot</span>
+<span class="n">genus_plot_dist</span> <span class="o">=</span> <span class="n">tls_only</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;plot_blk&#39;</span><span class="p">,</span> <span class="s1">&#39;predicted_genus&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">genus_plot_dist</span><span class="p">[</span><span class="s1">&#39;pct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">genus_plot_dist</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;plot_blk&#39;</span><span class="p">)[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+
+<span class="c1"># Aggregate species predictions per plot</span>
+<span class="n">species_plot_dist</span> <span class="o">=</span> <span class="n">tls_only</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;plot_blk&#39;</span><span class="p">,</span> <span class="s1">&#39;predicted_species&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+<span class="n">species_plot_dist</span><span class="p">[</span><span class="s1">&#39;pct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">species_plot_dist</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;plot_blk&#39;</span><span class="p">)[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="n">x</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pft_by_plot</span> <span class="o">=</span> <span class="n">pft_plot_dist</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+    <span class="n">index</span><span class="o">=</span><span class="s1">&#39;plot_blk&#39;</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;predicted_pft&#39;</span><span class="p">,</span>
+    <span class="n">values</span><span class="o">=</span><span class="s1">&#39;pct&#39;</span><span class="p">,</span>
+    <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span>
+<span class="n">pft_by_plot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>predicted_pft</th>
+      <th>Deciduous</th>
+      <th>Evergreen conifer</th>
+    </tr>
+    <tr>
+      <th>plot_blk</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>CAFKU_0096_20240804_1</th>
+      <td>0.000000</td>
+      <td>100.000000</td>
+    </tr>
+    <tr>
+      <th>CAFKU_0100_20240804_1</th>
+      <td>0.000000</td>
+      <td>100.000000</td>
+    </tr>
+    <tr>
+      <th>CALNU_0028_20241110_1</th>
+      <td>5.263158</td>
+      <td>94.736842</td>
+    </tr>
+    <tr>
+      <th>CALNU_0029_20241110_1</th>
+      <td>0.000000</td>
+      <td>100.000000</td>
+    </tr>
+    <tr>
+      <th>CALNU_0030_20241110_1</th>
+      <td>0.000000</td>
+      <td>100.000000</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>CATCU_0123_20241013_1</th>
+      <td>0.000000</td>
+      <td>100.000000</td>
+    </tr>
+    <tr>
+      <th>CATCU_0125_20241013_1</th>
+      <td>0.000000</td>
+      <td>100.000000</td>
+    </tr>
+    <tr>
+      <th>CATNF_6046_20240817_1</th>
+      <td>0.000000</td>
+      <td>100.000000</td>
+    </tr>
+    <tr>
+      <th>CATNF_6055_20240816_1</th>
+      <td>0.000000</td>
+      <td>100.000000</td>
+    </tr>
+    <tr>
+      <th>CATNF_6059_20240730_1</th>
+      <td>0.000000</td>
+      <td>100.000000</td>
+    </tr>
+  </tbody>
+</table>
+<p>112 rows × 2 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">genus_by_plot</span> <span class="o">=</span> <span class="n">genus_plot_dist</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+    <span class="n">index</span><span class="o">=</span><span class="s1">&#39;plot_blk&#39;</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;predicted_genus&#39;</span><span class="p">,</span>
+    <span class="n">values</span><span class="o">=</span><span class="s1">&#39;pct&#39;</span><span class="p">,</span>
+    <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span>
+<span class="n">genus_by_plot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>predicted_genus</th>
+      <th>Abies</th>
+      <th>Calocedrus</th>
+      <th>Pinus</th>
+      <th>Populus</th>
+      <th>Quercus</th>
+    </tr>
+    <tr>
+      <th>plot_blk</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>CAFKU_0096_20240804_1</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>100.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>CAFKU_0100_20240804_1</th>
+      <td>0.000000</td>
+      <td>75.000000</td>
+      <td>25.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>CALNU_0028_20241110_1</th>
+      <td>0.000000</td>
+      <td>47.368421</td>
+      <td>52.631579</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>CALNU_0029_20241110_1</th>
+      <td>0.000000</td>
+      <td>72.727273</td>
+      <td>27.272727</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>CALNU_0030_20241110_1</th>
+      <td>0.000000</td>
+      <td>40.909091</td>
+      <td>59.090909</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>CATCU_0123_20241013_1</th>
+      <td>0.000000</td>
+      <td>57.142857</td>
+      <td>42.857143</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>CATCU_0125_20241013_1</th>
+      <td>7.692308</td>
+      <td>46.153846</td>
+      <td>46.153846</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>CATNF_6046_20240817_1</th>
+      <td>0.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>CATNF_6055_20240816_1</th>
+      <td>0.000000</td>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>CATNF_6059_20240730_1</th>
+      <td>22.222222</td>
+      <td>66.666667</td>
+      <td>11.111111</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>112 rows × 5 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">species_by_plot</span> <span class="o">=</span> <span class="n">species_plot_dist</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span>
+    <span class="n">index</span><span class="o">=</span><span class="s1">&#39;plot_blk&#39;</span><span class="p">,</span>
+    <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;predicted_species&#39;</span><span class="p">,</span>
+    <span class="n">values</span><span class="o">=</span><span class="s1">&#39;pct&#39;</span><span class="p">,</span>
+    <span class="n">fill_value</span><span class="o">=</span><span class="mi">0</span>
+<span class="p">)</span>
+<span class="n">species_by_plot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>predicted_species</th>
+      <th>contorta</th>
+      <th>decurrens</th>
+      <th>jeffreyi</th>
+      <th>lambertiana</th>
+      <th>magnifica</th>
+      <th>ponderosa</th>
+      <th>tremuloides</th>
+    </tr>
+    <tr>
+      <th>plot_blk</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>CAFKU_0096_20240804_1</th>
+      <td>0.000000</td>
+      <td>100.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>CAFKU_0100_20240804_1</th>
+      <td>0.000000</td>
+      <td>100.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>CALNU_0028_20241110_1</th>
+      <td>36.842105</td>
+      <td>63.157895</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>CALNU_0029_20241110_1</th>
+      <td>9.090909</td>
+      <td>90.909091</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>CALNU_0030_20241110_1</th>
+      <td>31.818182</td>
+      <td>63.636364</td>
+      <td>4.545455</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>CATCU_0123_20241013_1</th>
+      <td>42.857143</td>
+      <td>42.857143</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>14.285714</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>CATCU_0125_20241013_1</th>
+      <td>0.000000</td>
+      <td>92.307692</td>
+      <td>0.000000</td>
+      <td>7.692308</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>CATNF_6046_20240817_1</th>
+      <td>50.000000</td>
+      <td>50.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>CATNF_6055_20240816_1</th>
+      <td>25.000000</td>
+      <td>75.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>CATNF_6059_20240730_1</th>
+      <td>11.111111</td>
+      <td>66.666667</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>22.222222</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>112 rows × 7 columns</p>
+</div></div></div>
+</div>
+<p>The above three tables show the PFT, Genus, and Species distribution for each plot in the TLS dataset, answering our main research question. In order to facilitate further exploration, we also created a small interactive tool that allows you to more easily work with the 112 different plots that we have access to. You can use the tool here:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="kn">import</span> <span class="n">interact</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">widgets</span>
+
+<span class="n">plot_blks</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">pft_by_plot</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">plot_pie_charts</span><span class="p">(</span><span class="n">plot_blk</span><span class="p">):</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+
+    <span class="c1"># Plot PFT Pie</span>
+    <span class="n">pft_row</span> <span class="o">=</span> <span class="n">pft_by_plot</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">plot_blk</span><span class="p">]</span>
+    <span class="n">pft_row</span><span class="p">[</span><span class="n">pft_row</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;PFT Distribution - </span><span class="si">{</span><span class="n">plot_blk</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Plot Genus Pie</span>
+    <span class="n">genus_row</span> <span class="o">=</span> <span class="n">genus_by_plot</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">plot_blk</span><span class="p">]</span>
+    <span class="n">genus_row</span><span class="p">[</span><span class="n">genus_row</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Genus Distribution - </span><span class="si">{</span><span class="n">plot_blk</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Plot Species Pie</span>
+    <span class="n">species_row</span> <span class="o">=</span> <span class="n">species_by_plot</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">plot_blk</span><span class="p">]</span>
+    <span class="n">species_row</span><span class="p">[</span><span class="n">species_row</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">pie</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Species Distribution - </span><span class="si">{</span><span class="n">plot_blk</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">axes</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># Interactive dropdown</span>
+<span class="n">interact</span><span class="p">(</span><span class="n">plot_pie_charts</span><span class="p">,</span> <span class="n">plot_blk</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Dropdown</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">plot_blks</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;CATCU_0117_20241011_1&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Plot:&#39;</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "bb28c06d56544312bcd21a2da29e5e04", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sprint3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Sprint 3</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Pranav Rajaram
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

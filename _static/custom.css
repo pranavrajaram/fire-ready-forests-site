@@ -1,0 +1,14 @@
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+  }
+  
+  a {
+    color: #2b7a78;
+  }
+  
+  .info-popup {
+    cursor: pointer;
+    color: #e76f51;
+    text-decoration: underline dotted;
+  }
+  
